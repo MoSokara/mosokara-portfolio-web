@@ -6,6 +6,7 @@
     "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact",
+    "hireMe": "Hire Me",
     "light": "Light",
     "dark": "Dark",
     "system": "System",
@@ -16,7 +17,7 @@
     "title1": "Mohamed",
     "title2": "Sokara",
     "bio": "I build fast, responsive, and accessible web interfaces with a focus on clean structure, polished interactions, and maintainable code.",
-    "stack": "MERN Stack Web Developer",
+    "stack": "Frontend Web Developer",
     "primaryBtn": "Hire Me",
     "secondaryBtn": "My Works"
   }
