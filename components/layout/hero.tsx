@@ -35,15 +35,15 @@ export default function Hero() {
 
           {/* Call to actions */}
           <div className="flex w-full flex-col items-center justify-center gap-3 sm:flex-row md:justify-start">
-            <Button asChild size="xl" className="w-full sm:w-auto">
-              <Link href="#contact">
+            <Button size="xl" className="flex-1 w-full">
+              <Link href="#contact" className="flex items-center gap-2">
                 <MessageCircle />
                 {t("primaryBtn")}
               </Link>
             </Button>
 
-            <Button asChild size="xl" variant="secondary" className="w-full sm:w-auto">
-              <Link href="#projects">
+            <Button size="xl" variant="secondary" className="flex-1 w-full">
+              <Link href="#projects" className="flex items-center gap-2">
                 <FolderKanban />
                 {t("secondaryBtn")}
               </Link>
