@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 // Icons
-import { Menu } from "lucide-react";
+import { ArrowUpRight, Menu } from "lucide-react";
 
 // Components
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -27,7 +27,7 @@ import { useState } from "react";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
-  const t = useTranslations("Navbar");
+  const t = useTranslations("Header");
 
   return (
     <Drawer open={open} onOpenChange={setOpen} swipeDirection="right">
@@ -51,7 +51,10 @@ export default function MobileMenu() {
             <Link
               href="#about"
               onClick={() => setOpen(false)}
-              className={buttonVariants({ variant: "outline", className: "w-full" })}
+              className={buttonVariants({
+                variant: "outline",
+                className: "w-full",
+              })}
             >
               {t("about")}
             </Link>
@@ -59,7 +62,10 @@ export default function MobileMenu() {
             <Link
               href="#services"
               onClick={() => setOpen(false)}
-              className={buttonVariants({ variant: "outline", className: "w-full" })}
+              className={buttonVariants({
+                variant: "outline",
+                className: "w-full",
+              })}
             >
               {t("services")}
             </Link>
@@ -67,7 +73,10 @@ export default function MobileMenu() {
             <Link
               href="#skills"
               onClick={() => setOpen(false)}
-              className={buttonVariants({ variant: "outline", className: "w-full" })}
+              className={buttonVariants({
+                variant: "outline",
+                className: "w-full",
+              })}
             >
               {t("skills")}
             </Link>
@@ -75,7 +84,10 @@ export default function MobileMenu() {
             <Link
               href="#projects"
               onClick={() => setOpen(false)}
-              className={buttonVariants({ variant: "outline", className: "w-full" })}
+              className={buttonVariants({
+                variant: "outline",
+                className: "w-full",
+              })}
             >
               {t("projects")}
             </Link>
@@ -88,7 +100,8 @@ export default function MobileMenu() {
             onClick={() => setOpen(false)}
             className={buttonVariants({ size: "lg", className: "mb-4 w-full" })}
           >
-            {t("hireMe")}
+            {t("cta")}
+            <ArrowUpRight />
           </Link>
 
           <div className="flex items-center gap-2">

@@ -1,12 +1,12 @@
 {
-  "Navbar": {
+  "Header": {
     "title": "Sokara",
     "about": "About",
     "services": "Services",
     "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact",
-    "hireMe": "Hire Me",
+    "cta": "Let's work together",
     "light": "Light",
     "dark": "Dark",
     "system": "System",
@@ -16,7 +16,7 @@
     "menu": "Menu",
     "close": "Close"
   },
-  "HomePage": {
+  "Hero": {
     "badge": "Available for freelance and development opportunities",
     "title1": "Mohamed",
     "title2": "Sokara",

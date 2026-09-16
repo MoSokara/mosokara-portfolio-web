@@ -9,10 +9,10 @@ import LanguageSwitcher from "./language-switcher";
 import ThemeSwitcher from "./theme-switcher";
 import MobileMenu from "./mobile-menu";
 import Container from "./container";
-import { Terminal } from "lucide-react";
+import { ArrowUpRight, Terminal } from "lucide-react";
 
 export default function Header() {
-  const t = useTranslations("Navbar");
+  const t = useTranslations("Header");
 
   return (
     <header
@@ -32,7 +32,10 @@ export default function Header() {
 
           {/* Desktop navigation */}
           <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-            <Link href="#about" className="transition-colors hover:text-primary">
+            <Link
+              href="#about"
+              className="transition-colors hover:text-primary"
+            >
               {t("about")}
             </Link>
             <Link
@@ -73,7 +76,8 @@ export default function Header() {
                 href="#contact"
                 className={buttonVariants({ variant: "default" })}
               >
-                {t("hireMe")}
+                {t("cta")}
+                <ArrowUpRight />
               </Link>
             </div>
 

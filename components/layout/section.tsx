@@ -1,27 +1,17 @@
-// Types
 import { ReactNode } from "react";
-
-// Components
 import Container from "./container";
 
-export default function Section({
-  children,
-  variant = "primary",
-  id,
-}: {
+type SectionProps = {
   children: ReactNode;
-  variant?: "primary" | "secondary";
   id?: string;
-}) {
-  const variants = {
-    primary: "bg-dark text-white",
-    secondary: "bg-light text-dark",
-  };
+  className?: string;
+};
 
+export default function Section({ children, id, className }: SectionProps) {
   return (
     <section
       id={id}
-      className={`relative flex items-center py-6 md:py-10 overflow-hidden w-full min-h-[calc(100vh-80px)] ${variants[variant]}`}
+      className={`w-full border-b border-border py-16 md:py-24 ${className ?? ""}`}
     >
       <Container>{children}</Container>
     </section>

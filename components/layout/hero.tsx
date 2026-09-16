@@ -12,10 +12,10 @@ import { Button } from "@/components/ui/button";
 import Section from "./section";
 
 export default function Hero() {
-  const t = useTranslations("HomePage");
+  const t = useTranslations("Hero");
 
   return (
-    <Section variant="primary" id="home">
+    <Section id="home">
       {/* Content */}
       <div className="flex flex-col-reverse items-center justify-center gap-8 md:flex-row md:gap-12">
         <div className="space-y-6 text-center md:max-w-2xl md:text-left rtl:md:text-right">

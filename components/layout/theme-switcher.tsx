@@ -23,7 +23,7 @@ export default function ThemeSwitcher({
   className?: string;
   text?: string;
 }) {
-  const t = useTranslations("Navbar");
+  const t = useTranslations("Header");
   const { theme, setTheme } = useTheme();
 
   return (
