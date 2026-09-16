@@ -1,6 +1,7 @@
 // Utils
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 // Icons
 import { FolderKanban, MessageCircle } from "lucide-react";
@@ -12,50 +13,53 @@ import Section from "./section";
 
 export default function Hero() {
   const t = useTranslations("HomePage");
+
   return (
-    <Section variant="primary">
+    <Section variant="primary" id="home">
       {/* Content */}
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6">
-        <div className="space-y-6 text-center md:text-left">
+      <div className="flex flex-col-reverse items-center justify-center gap-8 md:flex-row md:gap-12">
+        <div className="space-y-6 text-center md:max-w-2xl md:text-left rtl:md:text-right">
           <Badge>{t("badge")}</Badge>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground font-extrabold tracking-tight">
+
+          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
             {t("title1")} <span className="text-primary">{t("title2")}</span>
           </h1>
-          <h2 className="text-accent-foreground text-2xl font-mono">
+
+          <h2 className="font-mono text-xl text-accent-foreground sm:text-2xl">
             {t("stack")}
           </h2>
-          <p className="max-w-150 mx-auto lg:mx-0 text-lg text-muted-foreground sm:text-xl">
+
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl md:mx-0">
             {t("bio")}
           </p>
-          <div className="flex items-center justify-center gap-3 w-full">
-            {/* Call to Action */}
-            <Button
-              size="xl"
-              className="flex-1 flex items-center justify-center gap-2"
-            >
-              <MessageCircle />
-              {t("primaryBtn")}
+
+          {/* Call to actions */}
+          <div className="flex w-full flex-col items-center justify-center gap-3 sm:flex-row md:justify-start">
+            <Button asChild size="xl" className="w-full sm:w-auto">
+              <Link href="#contact">
+                <MessageCircle />
+                {t("primaryBtn")}
+              </Link>
             </Button>
 
-            {/* Secondary Call to Action */}
-            <Button
-              size="xl"
-              variant="secondary"
-              className="flex-1 flex items-center justify-center gap-2"
-            >
-              <FolderKanban />
-              {t("secondaryBtn")}
+            <Button asChild size="xl" variant="secondary" className="w-full sm:w-auto">
+              <Link href="#projects">
+                <FolderKanban />
+                {t("secondaryBtn")}
+              </Link>
             </Button>
           </div>
         </div>
 
-        <div className="aspect-square w-full h-full md:w-120 md:h-120 p-3 bg-muted rounded-lg">
+        <div className="aspect-square w-full max-w-md rounded-xl bg-muted p-3 md:w-120 md:max-w-none">
           <Image
             src="/imgs/my-photo.jpg"
-            alt="Hero Background"
-            width={1920}
-            height={1080}
-            className="rounded-lg w-full h-full object-cover"
+            alt={t("photoAlt")}
+            width={800}
+            height={800}
+            priority
+            sizes="(max-width: 768px) 100vw, 480px"
+            className="h-full w-full rounded-lg object-cover"
           />
         </div>
       </div>
