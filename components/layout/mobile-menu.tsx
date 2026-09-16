@@ -33,79 +33,75 @@ export default function MobileMenu() {
     <Drawer open={open} onOpenChange={setOpen} swipeDirection="right">
       <DrawerTrigger
         render={
-          <Button variant="secondary">
+          <Button variant="secondary" aria-label={t("menu")}>
             <Menu />
           </Button>
         }
       />
+
       <DrawerContent dir="ltr">
         {/* Header */}
         <DrawerHeader>
-          <DrawerTitle>Menu</DrawerTitle>
+          <DrawerTitle>{t("menu")}</DrawerTitle>
         </DrawerHeader>
 
-        {/* Content */}
+        {/* Navigation */}
         <div className="flex-1 scroll-fade overflow-y-auto p-4">
           <nav className="flex flex-col items-center gap-3 text-sm font-medium">
             <Link
               href="#about"
-              className={buttonVariants({
-                variant: "outline",
-                className: "w-full",
-              })}
+              onClick={() => setOpen(false)}
+              className={buttonVariants({ variant: "outline", className: "w-full" })}
             >
               {t("about")}
             </Link>
 
             <Link
               href="#services"
-              className={buttonVariants({
-                variant: "outline",
-                className: "w-full",
-              })}
+              onClick={() => setOpen(false)}
+              className={buttonVariants({ variant: "outline", className: "w-full" })}
             >
               {t("services")}
             </Link>
 
             <Link
               href="#skills"
-              className={buttonVariants({
-                variant: "outline",
-                className: "w-full",
-              })}
+              onClick={() => setOpen(false)}
+              className={buttonVariants({ variant: "outline", className: "w-full" })}
             >
               {t("skills")}
             </Link>
 
             <Link
               href="#projects"
-              className={buttonVariants({
-                variant: "outline",
-                className: "w-full",
-              })}
+              onClick={() => setOpen(false)}
+              className={buttonVariants({ variant: "outline", className: "w-full" })}
             >
               {t("projects")}
             </Link>
           </nav>
+
           <Separator className="my-4" />
+
           <Link
             href="#contact"
-            className={buttonVariants({
-              size: "lg",
-              className: "w-full mb-4",
-            })}
+            onClick={() => setOpen(false)}
+            className={buttonVariants({ size: "lg", className: "mb-4 w-full" })}
           >
-            Contact me
+            {t("hireMe")}
           </Link>
+
           <div className="flex items-center gap-2">
-            <LanguageSwitcher className="flex-1" text="Language" />
-            <ThemeSwitcher className="flex-1" text="Theme" />
+            <LanguageSwitcher className="flex-1" text={t("language")} />
+            <ThemeSwitcher className="flex-1" text={t("theme")} />
           </div>
         </div>
 
         {/* Actions */}
         <DrawerFooter>
-          <DrawerClose render={<Button variant="outline">Cancel</Button>} />
+          <DrawerClose
+            render={<Button variant="outline">{t("close")}</Button>}
+          />
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
