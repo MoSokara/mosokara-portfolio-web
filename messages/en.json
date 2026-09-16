@@ -16,16 +16,6 @@
     "menu": "Menu",
     "close": "Close"
   },
-  "Hero": {
-    "badge": "Available for freelance and development opportunities",
-    "title1": "Mohamed",
-    "title2": "Sokara",
-    "bio": "I build modern, scalable, and high-quality web applications using the MERN stack, with a strong focus on clean architecture, responsive interfaces, and maintainable code.",
-    "stack": "MERN Stack Developer",
-    "primaryBtn": "Hire Me",
-    "secondaryBtn": "My Works",
-    "photoAlt": "Mohamed Sokara, MERN Stack Developer"
-  },
   "Footer": {
     "description": "MERN Stack Developer focused on building modern, scalable, and maintainable web applications with clean architecture and polished user experiences.",
     "status": "Open to freelance and development opportunities",
@@ -43,5 +33,48 @@
     },
     "copyright": "Sokara. All rights reserved.",
     "builtWith": "Built with Next.js, TypeScript & the MERN stack"
+  },
+  "Hero": {
+    "badge": "Available for freelance and development opportunities",
+    "title1": "Mohamed",
+    "title2": "Sokara",
+    "bio": "I build modern, scalable, and high-quality web applications using the MERN stack, with a strong focus on clean architecture, responsive interfaces, and maintainable code.",
+    "stack": "MERN Stack Developer",
+    "primaryBtn": "Hire Me",
+    "secondaryBtn": "My Works",
+    "photoAlt": "Mohamed Sokara, MERN Stack Developer"
+  },
+  "About": {
+    "badge": "About Me",
+    "eyebrow": "// developer.profile",
+    "title": "Building for the web, growing into full-stack.",
+    "description": "I'm Mohamed Sokara, a MERN Stack Developer focused on building modern web applications with clean architecture, responsive interfaces, and maintainable code.",
+    "story": {
+      "label": "developer.story",
+      "title": "I care about how things are built, not just how they look.",
+      "paragraph1": "My journey started with frontend development, where I built a strong foundation in HTML, CSS, JavaScript, React, and modern UI development.",
+      "paragraph2": "Today, I work toward becoming a stronger full-stack developer by building complete applications with the MERN stack and continuously improving my engineering practices."
+    },
+    "focus": {
+      "label": "current.focus",
+      "status": "Active",
+      "title": "Building, learning, and improving.",
+      "description": "I'm currently focused on strengthening my MERN Stack skills, building real-world projects, and preparing for freelance and professional development opportunities.",
+      "command": "keep_building --full-stack"
+    },
+    "highlights": {
+      "code": {
+        "title": "Clean Code",
+        "description": "I aim for clear, reusable, and maintainable code that can evolve with the project."
+      },
+      "stack": {
+        "title": "Full-Stack Mindset",
+        "description": "I work across the frontend and backend to understand and build complete web applications."
+      },
+      "build": {
+        "title": "Learn by Building",
+        "description": "Real projects are a core part of how I turn concepts into practical development experience."
+      }
+    }
   }
 }
