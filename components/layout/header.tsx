@@ -17,47 +17,45 @@ export default function Header() {
   return (
     <header
       dir="ltr"
-      className="sticky top-0 z-50 w-full border-b border-border bg-header/80 backdrop-blur-md transition-colors duration-500 dark:bg-header/80"
+      className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md"
     >
       <Container>
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          {/* App Name */}
+        <div className="flex h-16 items-center justify-between px-4">
+          {/* Brand */}
           <Link
             href="/"
-            className="flex items-center gap-2 font-bold font-mono text-xl text-primary transition hover:bg-muted px-3 py-2 rounded-lg"
+            className="flex items-center gap-2 rounded-lg px-3 py-2 font-mono text-xl font-bold text-primary transition-colors hover:bg-muted"
           >
-            <Terminal /> {t("title")}
+            <Terminal />
+            {t("title")}
           </Link>
 
-          {/* Desktop Navigations */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <Link
-              href="#about"
-              className="transition-colors hover:text-primary"
-            >
+          {/* Desktop navigation */}
+          <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
+            <Link href="#about" className="transition-colors hover:text-primary">
               {t("about")}
             </Link>
             <Link
               href="#services"
-              className="transition-colors hover:text-primary text-muted-foreground"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               {t("services")}
             </Link>
             <Link
               href="#skills"
-              className="transition-colors hover:text-primary text-muted-foreground"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               {t("skills")}
             </Link>
             <Link
               href="#projects"
-              className="transition-colors hover:text-primary text-muted-foreground"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               {t("projects")}
             </Link>
             <Link
               href="#contact"
-              className="transition-colors hover:text-primary text-muted-foreground"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               {t("contact")}
             </Link>
@@ -65,7 +63,7 @@ export default function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden items-center gap-3 md:flex">
               <div className="flex items-center gap-2">
                 <ThemeSwitcher />
                 <LanguageSwitcher />
@@ -73,13 +71,12 @@ export default function Header() {
               <Separator orientation="vertical" />
               <Link
                 href="#contact"
-                className={buttonVariants({
-                  variant: "default",
-                })}
+                className={buttonVariants({ variant: "default" })}
               >
-                Hire Me
+                {t("hireMe")}
               </Link>
             </div>
+
             <div className="block md:hidden">
               <MobileMenu />
             </div>
