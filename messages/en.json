@@ -10,7 +10,11 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System",
-    "sr-only1": "Theme Toggle"
+    "sr-only1": "Theme Toggle",
+    "language": "Language",
+    "theme": "Theme",
+    "menu": "Menu",
+    "close": "Close"
   },
   "HomePage": {
     "badge": "Available for frontend opportunities",
@@ -19,6 +23,7 @@
     "bio": "I build fast, responsive, and accessible web interfaces with a focus on clean structure, polished interactions, and maintainable code.",
     "stack": "Frontend Web Developer",
     "primaryBtn": "Hire Me",
-    "secondaryBtn": "My Works"
+    "secondaryBtn": "My Works",
+    "photoAlt": "Mohamed Sokara, frontend web developer"
   }
 }
