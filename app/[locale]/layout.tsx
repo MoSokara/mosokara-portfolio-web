@@ -28,48 +28,45 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mosokara.vercel.app"),
   title: {
-    default: "MoSokara - Full Stack Web Developer",
-    template: "%s | MoSokara",
+    default: "Sokara | Frontend Web Developer",
+    template: "%s | Sokara",
   },
   description:
-    "Portfolio of Mohamed Sokara, a full stack (MERN Stack) web developer building responsive websites, modern interfaces, web apps, and interactive JavaScript projects.",
-  keywords:
-    "Mohamed Sokara, MoSokara, mosokara, sokara, Sokara, frontend developer, portfolio, HTML, CSS, JavaScript, Sass, React, responsive web design",
-  robots: "index, follow",
-
+    "Mohamed Sokara's portfolio: frontend-focused web development with React, Next.js, TypeScript, and modern, accessible interfaces.",
+  authors: [{ name: "Mohamed Sokara" }],
+  creator: "Mohamed Sokara",
+  publisher: "Mohamed Sokara",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     type: "website",
-    locale: "en_US, ar_EG",
-    url: "https://example.com",
-    title: "MoSokara | Full Stack Developer Portfolio",
+    url: "https://mosokara.vercel.app",
+    title: "Sokara | Frontend Web Developer",
     description:
-      "Portfolio of Mohamed Sokara, a full stack (MERN Stack) web developer building responsive websites, modern interfaces, web apps, and interactive JavaScript projects.",
+      "Portfolio of Mohamed Sokara, a frontend-focused web developer building modern, responsive, and accessible web interfaces.",
     siteName: "Sokara Portfolio",
     images: [
       {
-        url: "imgs/preview/hero_preview.png",
-        alt: "Preview of the hero section from Mohamed Sokara's portfolio",
+        url: "/imgs/preview/hero_preview.png",
+        alt: "Sokara portfolio preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@mosokara",
     creator: "@mosokara",
+    title: "Sokara | Frontend Web Developer",
     description:
-      "Portfolio of Mohamed Sokara, a full stack (MERN Stack) web developer building responsive websites, modern interfaces, web apps, and interactive JavaScript projects.",
-    title: "MoSokara | Full Stack Developer Portfolio",
-    images: [
-      {
-        url: "imgs/preview/hero_preview.png",
-        alt: "Preview of the hero section from Mohamed Sokara's portfolio",
-      },
-    ],
+      "Portfolio of Mohamed Sokara, a frontend-focused web developer building modern, responsive, and accessible web interfaces.",
+    images: ["/imgs/preview/hero_preview.png"],
   },
   icons: {
-    icon: "imgs/favicon/icon.png",
-    apple: "imgs/favicon/apple-icon.png",
+    icon: "/imgs/favicon/icon.png",
+    apple: "/imgs/favicon/apple-icon.png",
   },
 };
 
