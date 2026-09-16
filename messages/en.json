@@ -17,13 +17,31 @@
     "close": "Close"
   },
   "HomePage": {
-    "badge": "Available for frontend opportunities",
+    "badge": "Available for freelance and development opportunities",
     "title1": "Mohamed",
     "title2": "Sokara",
-    "bio": "I build fast, responsive, and accessible web interfaces with a focus on clean structure, polished interactions, and maintainable code.",
-    "stack": "Frontend Web Developer",
+    "bio": "I build modern, scalable, and high-quality web applications using the MERN stack, with a strong focus on clean architecture, responsive interfaces, and maintainable code.",
+    "stack": "MERN Stack Developer",
     "primaryBtn": "Hire Me",
     "secondaryBtn": "My Works",
-    "photoAlt": "Mohamed Sokara, frontend web developer"
+    "photoAlt": "Mohamed Sokara, MERN Stack Developer"
+  },
+  "Footer": {
+    "description": "MERN Stack Developer focused on building modern, scalable, and maintainable web applications with clean architecture and polished user experiences.",
+    "status": "Open to freelance and development opportunities",
+    "navigation": {
+      "title": "Navigation",
+      "about": "About",
+      "services": "Services",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "connect": {
+      "title": "Connect",
+      "cta": "Let's work together"
+    },
+    "copyright": "Sokara. All rights reserved.",
+    "builtWith": "Built with Next.js, TypeScript & the MERN stack"
   }
 }
