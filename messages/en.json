@@ -1,0 +1,23 @@
+{
+  "Navbar": {
+    "title": "Sokara",
+    "about": "About",
+    "services": "Services",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "sr-only1": "Theme Toggle"
+  },
+  "HomePage": {
+    "badge": "Available for frontend opportunities",
+    "title1": "Mohamed",
+    "title2": "Sokara",
+    "bio": "I build fast, responsive, and accessible web interfaces with a focus on clean structure, polished interactions, and maintainable code.",
+    "stack": "MERN Stack Web Developer",
+    "primaryBtn": "Hire Me",
+    "secondaryBtn": "My Works"
+  }
+}
