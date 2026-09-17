@@ -12,6 +12,7 @@ The project is built with Next.js and is being developed as a production-oriente
 
 - Hero section with portfolio introduction and primary actions
 - About section with developer story, current focus, and highlights
+- Services section with four development and technical services
 - Scroll-aware navigation with active section state
 - Smooth in-page navigation with URL hash support
 - Mobile navigation drawer with active section state
@@ -20,10 +21,10 @@ The project is built with Next.js and is being developed as a production-oriente
 - Light and dark theme support
 - Responsive layout and reusable UI components
 - Motion integration for viewport-aware section tracking
+- Alternating section backgrounds for clearer visual separation
 
 ### Planned sections
 
-- Services
 - Skills
 - Projects
 - Contact
@@ -71,7 +72,8 @@ components/
 │   └── ...
 ├── sections/
 │   ├── about.tsx
-│   └── hero.tsx
+│   ├── hero.tsx
+│   └── services.tsx
 └── ui/
     └── ...
 
@@ -154,6 +156,10 @@ The application currently supports:
 - Arabic (`ar`)
 
 User-facing content is stored in the `messages/` directory and accessed through `next-intl`.
+
+## Future Ideas
+
+- Make each service card action (`ArrowUpRight`) open the Contact section with a pre-filled message specific to the selected service, while allowing the visitor to edit it before sending.
 
 ## Development Approach
 
