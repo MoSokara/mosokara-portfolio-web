@@ -1,13 +1,12 @@
 "use client";
 
-// Utils
-import { Link } from "@/i18n/navigation";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-
-// Icons
+import { Link } from "@/i18n/navigation";
 import { ArrowUpRight, Menu } from "lucide-react";
 
-// Components
+import { useActiveSection, type SectionId } from "@/hooks/use-active-section";
+
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Drawer,
@@ -19,15 +18,47 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Separator } from "@/components/ui/separator";
+
 import LanguageSwitcher from "./language-switcher";
 import ThemeSwitcher from "./theme-switcher";
 
-// Hooks
-import { useState } from "react";
-
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+
   const t = useTranslations("Header");
+
+  const { activeSection, scrollToSection } = useActiveSection();
+
+  const navigation: {
+    id: SectionId;
+    label: string;
+  }[] = [
+    {
+      id: "about",
+      label: t("about"),
+    },
+    {
+      id: "services",
+      label: t("services"),
+    },
+    {
+      id: "skills",
+      label: t("skills"),
+    },
+    {
+      id: "projects",
+      label: t("projects"),
+    },
+    {
+      id: "contact",
+      label: t("contact"),
+    },
+  ];
+
+  const handleNavigation = (sectionId: SectionId) => {
+    scrollToSection(sectionId);
+    setOpen(false);
+  };
 
   return (
     <Drawer open={open} onOpenChange={setOpen} swipeDirection="right">
@@ -40,65 +71,54 @@ export default function MobileMenu() {
       />
 
       <DrawerContent dir="ltr">
-        {/* Header */}
         <DrawerHeader>
           <DrawerTitle>{t("menu")}</DrawerTitle>
         </DrawerHeader>
 
-        {/* Navigation */}
-        <div className="flex-1 scroll-fade overflow-y-auto p-4">
-          <nav className="flex flex-col items-center gap-3 text-sm font-medium">
-            <Link
-              href="#about"
-              onClick={() => setOpen(false)}
-              className={buttonVariants({
-                variant: "outline",
-                className: "w-full",
-              })}
-            >
-              {t("about")}
-            </Link>
+        <div className="flex-1 overflow-y-auto p-4">
+          <nav className="flex flex-col gap-2">
+            {navigation.map((item) => {
+              const isActive = activeSection === item.id;
 
-            <Link
-              href="#services"
-              onClick={() => setOpen(false)}
-              className={buttonVariants({
-                variant: "outline",
-                className: "w-full",
-              })}
-            >
-              {t("services")}
-            </Link>
+              return (
+                <Link
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleNavigation(item.id);
+                  }}
+                  aria-current={isActive ? "location" : undefined}
+                  className={buttonVariants({
+                    variant: isActive ? "secondary" : "outline",
+                    className: "w-full justify-between",
+                  })}
+                >
+                  <span>{item.label}</span>
 
-            <Link
-              href="#skills"
-              onClick={() => setOpen(false)}
-              className={buttonVariants({
-                variant: "outline",
-                className: "w-full",
-              })}
-            >
-              {t("skills")}
-            </Link>
-
-            <Link
-              href="#projects"
-              onClick={() => setOpen(false)}
-              className={buttonVariants({
-                variant: "outline",
-                className: "w-full",
-              })}
-            >
-              {t("projects")}
-            </Link>
+                  {isActive && (
+                    <span
+                      aria-hidden="true"
+                      className="size-1.5 rounded-full bg-primary"
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           <Separator className="my-4" />
 
           <Link
             href="#contact"
-            onClick={() => setOpen(false)}
-            className={buttonVariants({ size: "lg", className: "mb-4 w-full" })}
+            onClick={(event) => {
+              event.preventDefault();
+              handleNavigation("contact");
+            }}
+            className={buttonVariants({
+              size: "lg",
+              className: "mb-4 w-full",
+            })}
           >
             {t("cta")}
             <ArrowUpRight />
@@ -106,11 +126,11 @@ export default function MobileMenu() {
 
           <div className="flex items-center gap-2">
             <LanguageSwitcher className="flex-1" text={t("language")} />
+
             <ThemeSwitcher className="flex-1" text={t("theme")} />
           </div>
         </div>
 
-        {/* Actions */}
         <DrawerFooter>
           <DrawerClose
             render={<Button variant="outline">{t("close")}</Button>}

@@ -9,7 +9,7 @@ import { FolderKanban, MessageCircle } from "lucide-react";
 // Components
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Section from "./section";
+import Section from "../layout/section";
 
 export default function Hero() {
   const t = useTranslations("Hero");

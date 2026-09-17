@@ -11,7 +11,7 @@ export default function Section({ children, id, className }: SectionProps) {
   return (
     <section
       id={id}
-      className={`w-full border-b border-border py-16 md:py-24 ${className ?? ""}`}
+      className={`w-full scroll-mt-20 border-b border-border py-16 md:py-24 ${className ?? ""}`}
     >
       <Container>{children}</Container>
     </section>

@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight, Terminal } from "lucide-react";
@@ -5,20 +7,44 @@ import { ArrowUpRight, Terminal } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
+
+import { useActiveSection, type SectionId } from "@/hooks/use-active-section";
+
 import Container from "./container";
+
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Badge } from "../ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 export default function Footer() {
   const t = useTranslations("Footer");
 
-  const navigation = [
-    { label: t("navigation.about"), href: "#about" },
-    { label: t("navigation.services"), href: "#services" },
-    { label: t("navigation.skills"), href: "#skills" },
-    { label: t("navigation.projects"), href: "#projects" },
-    { label: t("navigation.contact"), href: "#contact" },
+  const { activeSection, scrollToSection, scrollToTop } = useActiveSection();
+
+  const navigation: {
+    id: SectionId;
+    label: string;
+  }[] = [
+    {
+      id: "about",
+      label: t("navigation.about"),
+    },
+    {
+      id: "services",
+      label: t("navigation.services"),
+    },
+    {
+      id: "skills",
+      label: t("navigation.skills"),
+    },
+    {
+      id: "projects",
+      label: t("navigation.projects"),
+    },
+    {
+      id: "contact",
+      label: t("navigation.contact"),
+    },
   ];
 
   const socialLinks = [
@@ -48,6 +74,10 @@ export default function Footer() {
             <div className="max-w-md">
               <Link
                 href="/"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToTop();
+                }}
                 className="mb-4 inline-flex items-center gap-2 rounded-lg px-2 py-1.5 font-mono text-lg font-bold text-primary transition-colors hover:bg-muted"
               >
                 <Terminal className="size-5" />
@@ -58,7 +88,7 @@ export default function Footer() {
                 {t("description")}
               </p>
 
-              <Badge>{t("status")}</Badge>
+              <Badge className="mt-4">{t("status")}</Badge>
             </div>
 
             {/* Navigation */}
@@ -67,16 +97,29 @@ export default function Footer() {
                 {t("navigation.title")}
               </h2>
 
-              <nav className="flex flex-col items-start gap-2">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-md px-1 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+              <nav className="flex flex-col items-start gap-1">
+                {navigation.map((item) => {
+                  const isActive = activeSection === item.id;
+
+                  return (
+                    <Link
+                      key={item.id}
+                      href={`#${item.id}`}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        scrollToSection(item.id);
+                      }}
+                      aria-current={isActive ? "location" : undefined}
+                      className={
+                        isActive
+                          ? "rounded-md bg-primary/10 px-2 py-1.5 text-sm text-primary transition-colors"
+                          : "rounded-md px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+                      }
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </nav>
             </div>
 
@@ -91,7 +134,7 @@ export default function Footer() {
                   const Icon = social.icon;
 
                   return (
-                    <Link
+                    <a
                       key={social.label}
                       href={social.href}
                       target={
@@ -110,13 +153,17 @@ export default function Footer() {
                       })}
                     >
                       <FontAwesomeIcon icon={Icon} />
-                    </Link>
+                    </a>
                   );
                 })}
               </div>
 
               <Link
                 href="#contact"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection("contact");
+                }}
                 className={buttonVariants({
                   className: "mt-4 inline-flex gap-2",
                 })}
