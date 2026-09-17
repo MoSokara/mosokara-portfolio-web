@@ -76,5 +76,29 @@
         "description": "Real projects are a core part of how I turn concepts into practical development experience."
       }
     }
+  },
+  "Services": {
+    "badge": "Services",
+    "eyebrow": "// what.i.build",
+    "title": "Practical solutions for modern web projects.",
+    "description": "I provide focused frontend, backend, and technical services built around clear requirements, modern technologies, and efficient AI-assisted workflows.",
+    "items": {
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "Modern, responsive frontend websites built from designs or requirements using React, Next.js, and modern web technologies. I focus on understanding the required experience, writing maintainable code, and using AI-assisted development to improve delivery speed without compromising quality."
+      },
+      "websites": {
+        "title": "Websites & Customization",
+        "description": "Ready-to-use websites adapted from existing work or recreated from reference websites, then customized to match the client's brand, content, and requirements. Modern UI practices and AI-assisted workflows help deliver polished results faster and more efficiently."
+      },
+      "api": {
+        "title": "Express REST API & Authentication",
+        "description": "Simple and practical REST APIs built with Express.js for small web applications and backend needs, including basic authentication and authorization with structured routes, validation, and secure request handling."
+      },
+      "support": {
+        "title": "Technical Troubleshooting & Consultation",
+        "description": "Practical troubleshooting and technical consultation for programming errors, Windows and software issues, game-related problems, performance and configuration issues, and basic security incident troubleshooting. Support can also include legitimate software activation, setup, and optimization guidance."
+      }
+    }
   }
 }
