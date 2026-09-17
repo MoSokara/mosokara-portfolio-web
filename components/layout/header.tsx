@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
-// Components
 import { Separator } from "@/components/ui/separator";
 import { buttonVariants } from "@/components/ui/button";
 import LanguageSwitcher from "./language-switcher";
@@ -12,99 +10,40 @@ import ThemeSwitcher from "./theme-switcher";
 import MobileMenu from "./mobile-menu";
 import Container from "./container";
 
-// Icons
 import { ArrowUpRight, Terminal } from "lucide-react";
 
-const sections = [
-  "about",
-  "services",
-  "skills",
-  "projects",
-  "contact",
-] as const;
-
-type SectionId = (typeof sections)[number];
+import { useActiveSection, type SectionId } from "@/hooks/use-active-section";
 
 export default function Header() {
   const t = useTranslations("Header");
-  const [activeSection, setActiveSection] = useState<SectionId | null>(null);
 
-  useEffect(() => {
-    const visibleSections = new Set<string>();
+  const { activeSection, scrollToSection, scrollToTop } = useActiveSection();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            visibleSections.add(entry.target.id);
-          } else {
-            visibleSections.delete(entry.target.id);
-          }
-        });
-
-        const currentSection = sections
-          .map((id) => document.getElementById(id))
-          .filter((section): section is HTMLElement =>
-            Boolean(section && visibleSections.has(section.id)),
-          )
-          .sort(
-            (a, b) =>
-              Math.abs(a.getBoundingClientRect().top) -
-              Math.abs(b.getBoundingClientRect().top),
-          )[0];
-
-        setActiveSection(
-          currentSection ? (currentSection.id as SectionId) : null,
-        );
-      },
-      {
-        root: null,
-        rootMargin: "-20% 0px -65% 0px",
-        threshold: 0,
-      },
-    );
-
-    sections.forEach((id) => {
-      const section = document.getElementById(id);
-
-      if (section) {
-        observer.observe(section);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const handleSectionClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    sectionId: SectionId,
-  ) => {
-    event.preventDefault();
-
-    const section = document.getElementById(sectionId);
-
-    if (!section) return;
-
-    setActiveSection(sectionId);
-
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
-  const handleBrandClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-
-    setActiveSection(null);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    window.history.replaceState(null, "", window.location.pathname);
-  };
+  const navigation: {
+    id: SectionId;
+    label: string;
+  }[] = [
+    {
+      id: "about",
+      label: t("about"),
+    },
+    {
+      id: "services",
+      label: t("services"),
+    },
+    {
+      id: "skills",
+      label: t("skills"),
+    },
+    {
+      id: "projects",
+      label: t("projects"),
+    },
+    {
+      id: "contact",
+      label: t("contact"),
+    },
+  ];
 
   return (
     <header
@@ -116,7 +55,10 @@ export default function Header() {
           {/* Brand */}
           <Link
             href="/"
-            onClick={handleBrandClick}
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToTop();
+            }}
             className="flex items-center gap-2 rounded-lg px-3 py-2 font-mono text-xl font-bold text-primary transition-colors hover:bg-muted"
           >
             <Terminal />
@@ -125,76 +67,28 @@ export default function Header() {
 
           {/* Desktop navigation */}
           <nav className="hidden items-center gap-2 text-sm font-medium md:flex">
-            <Link
-              href="#about"
-              onClick={(event) => handleSectionClick(event, "about")}
-              aria-current={activeSection === "about" ? "location" : undefined}
-              className={
-                activeSection === "about"
-                  ? "rounded-md bg-primary/10 px-2 py-1.5 text-primary transition-colors"
-                  : "rounded-md px-2 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-              }
-            >
-              {t("about")}
-            </Link>
+            {navigation.map((item) => {
+              const isActive = activeSection === item.id;
 
-            <Link
-              href="#services"
-              onClick={(event) => handleSectionClick(event, "services")}
-              aria-current={
-                activeSection === "services" ? "location" : undefined
-              }
-              className={
-                activeSection === "services"
-                  ? "rounded-md bg-primary/10 px-2 py-1.5 text-primary transition-colors"
-                  : "rounded-md px-2 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-              }
-            >
-              {t("services")}
-            </Link>
-
-            <Link
-              href="#skills"
-              onClick={(event) => handleSectionClick(event, "skills")}
-              aria-current={activeSection === "skills" ? "location" : undefined}
-              className={
-                activeSection === "skills"
-                  ? "rounded-md bg-primary/10 px-2 py-1.5 text-primary transition-colors"
-                  : "rounded-md px-2 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-              }
-            >
-              {t("skills")}
-            </Link>
-
-            <Link
-              href="#projects"
-              onClick={(event) => handleSectionClick(event, "projects")}
-              aria-current={
-                activeSection === "projects" ? "location" : undefined
-              }
-              className={
-                activeSection === "projects"
-                  ? "rounded-md bg-primary/10 px-2 py-1.5 text-primary transition-colors"
-                  : "rounded-md px-2 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-              }
-            >
-              {t("projects")}
-            </Link>
-
-            <Link
-              href="#contact"
-              onClick={(event) => handleSectionClick(event, "contact")}
-              aria-current={
-                activeSection === "contact" ? "location" : undefined
-              }
-              className={
-                activeSection === "contact"
-                  ? "rounded-md bg-primary/10 px-2 py-1.5 text-primary transition-colors"
-                  : "rounded-md px-2 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-              }
-            >
-              {t("contact")}
-            </Link>
+              return (
+                <Link
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection(item.id);
+                  }}
+                  aria-current={isActive ? "location" : undefined}
+                  className={
+                    isActive
+                      ? "rounded-md bg-primary/10 px-2 py-1.5 text-primary transition-colors"
+                      : "rounded-md px-2 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+                  }
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Actions */}
@@ -209,7 +103,10 @@ export default function Header() {
 
               <Link
                 href="#contact"
-                onClick={(event) => handleSectionClick(event, "contact")}
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection("contact");
+                }}
                 className={buttonVariants({
                   variant: "default",
                 })}
