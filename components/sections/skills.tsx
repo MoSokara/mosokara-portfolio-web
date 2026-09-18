@@ -26,12 +26,20 @@ type SkillItem = {
   icon: string | LucideIcon;
 };
 
+type SkillCategory = {
+  number: string;
+  icon: LucideIcon;
+  title: string;
+  items: SkillItem[];
+  reverse: boolean;
+};
+
 export default function Skills() {
   // Translations
   const t = useTranslations("Skills");
 
   // Skills Content
-  const categories = [
+  const categories: SkillCategory[] = [
     {
       number: "01",
       icon: Code2,
@@ -44,7 +52,7 @@ export default function Skills() {
         { name: "React", icon: "/icons/skills/react.svg" },
         { name: "Next.js", icon: "/icons/skills/nextjs.svg" },
         { name: "Tailwind CSS", icon: "/icons/skills/tailwindcss.svg" },
-      ] satisfies { number: string; icon: LucideIcon; title: string; items: SkillItem[]; reverse: boolean }[],
+      ],
       reverse: false,
     },
     {
