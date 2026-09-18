@@ -119,6 +119,32 @@
       "practices": {
         "title": "ممارسات التطوير"
       }
+    },
+    "items": {
+      "html5": "HTML5",
+      "css3": "CSS3",
+      "javascript": "JavaScript",
+      "typescript": "TypeScript",
+      "react": "React",
+      "nextjs": "Next.js",
+      "tailwindcss": "Tailwind CSS",
+      "nodejs": "Node.js",
+      "expressjs": "Express.js",
+      "mongodb": "MongoDB",
+      "restApi": "REST API",
+      "authentication": "المصادقة",
+      "git": "Git",
+      "github": "GitHub",
+      "vscode": "VS Code",
+      "figma": "Figma",
+      "npm": "npm",
+      "aiAssistedDevelopment": "التطوير بمساعدة الذكاء الاصطناعي",
+      "responsiveDesign": "التصميم المتجاوب",
+      "componentArchitecture": "معمارية المكونات",
+      "apiIntegration": "تكامل واجهات API",
+      "cleanCode": "الكود النظيف",
+      "localizationRtl": "التوطين وRTL",
+      "reusableUi": "واجهة مستخدم قابلة لإعادة الاستخدام"
     }
   }
 }
