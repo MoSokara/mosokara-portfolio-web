@@ -351,7 +351,7 @@
 }
 
 .skills-marquee-track {
-   animation: skills-marquee 28s linear infinite;
+   animation: skills-marquee 84s linear infinite;
    will-change: transform;
 }
 
@@ -366,13 +366,13 @@
 
 @media (max-width: 640px) {
    .skills-marquee-track {
-      animation-duration: 22s;
+      animation-duration: 66s;
    }
 }
 
 @media (min-width: 768px) {
    .skills-marquee-track {
-      animation-duration: 32s;
+      animation-duration: 96s;
    }
 }
 
@@ -389,7 +389,7 @@
       padding-inline-end: 0;
    }
 
-   .skills-marquee-group:nth-child(2) {
+   .skills-marquee-group:not(:first-child) {
       display: none;
    }
 }
