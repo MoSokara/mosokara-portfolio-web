@@ -4,8 +4,6 @@ import { useTranslations } from "next-intl";
 // Icons
 import { Code2, GitBranch, Layers3, Server } from "lucide-react";
 
-<<<<<<< HEAD
-=======
 // Font Awesome
 import {
   faCss3Alt,
@@ -31,15 +29,11 @@ import {
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
 
->>>>>>> 85410d4526135fb0172ec3dd78835acb091f4bf9
 // Components
 import Section from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-<<<<<<< HEAD
-=======
 import TechMarquee from "@/components/ui/tech-marquee";
->>>>>>> 85410d4526135fb0172ec3dd78835acb091f4bf9
 
 export default function Skills() {
   // Translations
@@ -48,51 +42,6 @@ export default function Skills() {
   // Skills Content
   const categories = [
     {
-<<<<<<< HEAD
-      icon: Code2,
-      title: t("categories.frontend.title"),
-      description: t("categories.frontend.description"),
-      skills: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "TypeScript",
-        "React",
-        "Next.js",
-        "Tailwind CSS",
-      ],
-    },
-    {
-      icon: Server,
-      title: t("categories.backend.title"),
-      description: t("categories.backend.description"),
-      skills: [
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "REST API",
-        "Authentication",
-      ],
-    },
-    {
-      icon: GitBranch,
-      title: t("categories.tools.title"),
-      description: t("categories.tools.description"),
-      skills: ["Git", "GitHub", "VS Code", "Figma", "AI-assisted Development"],
-    },
-    {
-      icon: Layers3,
-      title: t("categories.practices.title"),
-      description: t("categories.practices.description"),
-      skills: [
-        "Responsive Design",
-        "Component Architecture",
-        "API Integration",
-        "Clean Code",
-        "Localization & RTL",
-        "Reusable UI",
-      ],
-=======
       number: "01",
       icon: Code2,
       title: t("categories.frontend.title"),
@@ -147,7 +96,6 @@ export default function Skills() {
         { name: "Reusable UI", icon: faLayerGroup },
       ],
       reverse: true,
->>>>>>> 85410d4526135fb0172ec3dd78835acb091f4bf9
     },
   ];
 
@@ -174,53 +122,12 @@ export default function Skills() {
           </p>
         </div>
 
-<<<<<<< HEAD
-        {/* Skill Categories */}
-        <div className="grid gap-6 md:grid-cols-2">
-=======
         {/* Skill Collections */}
         <div className="space-y-5">
->>>>>>> 85410d4526135fb0172ec3dd78835acb091f4bf9
           {categories.map((category) => {
             const Icon = category.icon;
 
             return (
-<<<<<<< HEAD
-              <Card
-                key={category.title}
-                className="transition-colors hover:border-primary/30"
-              >
-                <CardContent className="p-6 sm:p-8">
-                  {/* Category Header */}
-                  <div className="mb-6 flex items-start gap-4">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <Icon className="size-5" aria-hidden="true" />
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground sm:text-2xl">
-                        {category.title}
-                      </h3>
-
-                      <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                        {category.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="font-mono text-xs"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-=======
               <Card key={category.number}>
                 <CardContent className="p-4 sm:p-5">
                   <div className="mb-4 flex items-center justify-between gap-4">
@@ -244,7 +151,6 @@ export default function Skills() {
                     reverse={category.reverse}
                     ariaLabel={category.title}
                   />
->>>>>>> 85410d4526135fb0172ec3dd78835acb091f4bf9
                 </CardContent>
               </Card>
             );
