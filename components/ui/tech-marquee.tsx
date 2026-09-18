@@ -1,5 +1,3 @@
-"use client";
-
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -23,13 +21,11 @@ export default function TechMarquee({
 }: TechMarqueeProps) {
   return (
     <div
-      className="skills-marquee relative overflow-hidden rounded-lg border border-border bg-muted/20"
+      role="group"
       aria-label={ariaLabel}
+      className="skills-marquee relative overflow-hidden rounded-lg border border-border bg-muted/20"
     >
-      <div
-        dir="ltr"
-        className="skills-marquee-viewport overflow-hidden"
-      >
+      <div dir="ltr" className="skills-marquee-viewport overflow-hidden">
         <div
           className={cn(
             "skills-marquee-track flex w-max items-center py-2.5",
