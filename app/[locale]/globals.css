@@ -380,6 +380,13 @@
    .skills-marquee-track {
       animation: none !important;
       transform: none !important;
+      width: 100%;
+   }
+
+   .skills-marquee-group {
+      width: 100%;
+      flex-wrap: wrap;
+      padding-inline-end: 0;
    }
 
    .skills-marquee-group:nth-child(2) {
