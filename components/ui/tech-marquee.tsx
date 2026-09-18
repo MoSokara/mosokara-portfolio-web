@@ -46,7 +46,7 @@ export default function TechMarquee({
                 >
                   {typeof item.icon === "string" ? (
                     <span
-                      className="size-4 shrink-0 bg-primary sm:size-[18px]"
+                      className="size-4 shrink-0 bg-primary sm:size-4.5"
                       style={{
                         maskImage: `url("${item.icon}")`,
                         WebkitMaskImage: `url("${item.icon}")`,
@@ -61,7 +61,7 @@ export default function TechMarquee({
                     />
                   ) : (
                     <item.icon
-                      className="size-4 shrink-0 text-primary sm:size-[18px]"
+                      className="size-4 shrink-0 text-primary sm:size-4.5"
                       aria-hidden="true"
                     />
                   )}
