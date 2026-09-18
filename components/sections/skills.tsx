@@ -2,12 +2,7 @@
 import { useTranslations } from "next-intl";
 
 // Icons
-import {
-  Code2,
-  GitBranch,
-  Layers3,
-  Server,
-} from "lucide-react";
+import { Code2, GitBranch, Layers3, Server } from "lucide-react";
 
 // Font Awesome
 import {
@@ -20,7 +15,6 @@ import {
   faNodeJs,
   faNpm,
   faReact,
-  faTypescript,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faCode,
@@ -37,9 +31,9 @@ import {
 
 // Components
 import Section from "@/components/layout/section";
-import TechMarquee from "@/components/ui/tech-marquee";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import TechMarquee from "@/components/ui/tech-marquee";
 
 export default function Skills() {
   // Translations
@@ -55,7 +49,7 @@ export default function Skills() {
         { name: "HTML5", icon: faHtml5 },
         { name: "CSS3", icon: faCss3Alt },
         { name: "JavaScript", icon: faJs },
-        { name: "TypeScript", icon: faTypescript },
+        { name: "TypeScript", icon: faCode },
         { name: "React", icon: faReact },
         { name: "Next.js", icon: faCode },
         { name: "Tailwind CSS", icon: faPalette },
@@ -139,7 +133,7 @@ export default function Skills() {
                   <div className="mb-4 flex items-center justify-between gap-4">
                     <div className="flex min-w-0 items-center gap-3">
                       <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <Icon className="size-4.5" aria-hidden="true" />
+                        <Icon className="size-4 sm:size-5" aria-hidden="true" />
                       </div>
 
                       <h3 className="truncate text-base font-semibold text-foreground sm:text-lg">
