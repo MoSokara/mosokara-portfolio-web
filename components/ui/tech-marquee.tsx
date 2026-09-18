@@ -1,11 +1,11 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
+import type { LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 type TechMarqueeItem = {
   name: string;
-  icon: IconDefinition;
+  icon: string | LucideIcon;
 };
 
 type TechMarqueeProps = {
@@ -38,18 +38,29 @@ export default function TechMarquee({
             <ul
               key={copy}
               aria-hidden={copy > 0}
-              className="skills-marquee-group flex shrink-0 items-center gap-3 sm:gap-4"
+              className="skills-marquee-group flex shrink-0 items-center gap-3 pe-3 sm:gap-4 sm:pe-4"
             >
               {items.map((item) => (
                 <li
                   key={item.name}
                   className="inline-flex shrink-0 items-center gap-2.5 rounded-md border border-border bg-card px-3 py-2 text-sm text-muted-foreground shadow-xs transition-colors hover:border-primary/30 hover:text-foreground sm:px-4 sm:py-2.5"
                 >
-                  <FontAwesomeIcon
-                    icon={item.icon}
-                    className="size-4 text-primary sm:size-[18px]"
-                    aria-hidden="true"
-                  />
+                  {typeof item.icon === "string" ? (
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      width={18}
+                      height={18}
+                      className="size-4 shrink-0 object-contain sm:size-[18px]"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <item.icon
+                      className="size-4 shrink-0 text-primary sm:size-[18px]"
+                      aria-hidden="true"
+                    />
+                  )}
+
                   <span className="whitespace-nowrap font-mono text-xs sm:text-sm">
                     {item.name}
                   </span>
