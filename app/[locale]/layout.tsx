@@ -71,10 +71,7 @@ export const metadata: Metadata = {
     images: ["/imgs/preview/hero_preview.png"],
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/imgs/favicon/icon.png", type: "image/png" },
-    ],
+    icon: "/imgs/favicon/icon.png",
     apple: "/imgs/favicon/apple-icon.png",
   },
 };
