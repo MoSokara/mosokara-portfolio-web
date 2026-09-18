@@ -71,8 +71,7 @@ export const metadata: Metadata = {
     images: ["/imgs/preview/hero_preview.png"],
   },
   icons: {
-    icon: "/imgs/favicon/icon.png",
-    apple: "/imgs/favicon/apple-icon.png",
+    icon: "/favicon.svg",
   },
 };
 
@@ -97,6 +96,7 @@ export default async function RootLayout({
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
       className={`${geistSans.variable} ${geistMono.variable} ${cairoSans.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
     >
       <body
         className={`min-h-full flex flex-col ${locale === "ar" ? "font-ar" : "font-en"}`}
