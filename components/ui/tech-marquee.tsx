@@ -14,6 +14,8 @@ type TechMarqueeProps = {
   ariaLabel?: string;
 };
 
+const MARQUEE_COPIES = 6;
+
 export default function TechMarquee({
   items,
   reverse = false,
@@ -32,11 +34,11 @@ export default function TechMarquee({
             reverse && "skills-marquee-track--reverse",
           )}
         >
-          {[0, 1].map((copy) => (
+          {Array.from({ length: MARQUEE_COPIES }, (_, copy) => (
             <ul
               key={copy}
-              aria-hidden={copy === 1}
-              className="skills-marquee-group flex shrink-0 items-center gap-3 pe-3 sm:gap-4 sm:pe-4"
+              aria-hidden={copy > 0}
+              className="skills-marquee-group flex shrink-0 items-center gap-3 sm:gap-4"
             >
               {items.map((item) => (
                 <li
