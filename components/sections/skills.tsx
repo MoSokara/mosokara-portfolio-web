@@ -2,38 +2,29 @@
 import { useTranslations } from "next-intl";
 
 // Icons
-import { Code2, GitBranch, Layers3, Server } from "lucide-react";
-
-// Font Awesome
+import type { LucideIcon } from "lucide-react";
 import {
-  faCss3Alt,
-  faFigma,
-  faGitAlt,
-  faGithub,
-  faHtml5,
-  faJs,
-  faNodeJs,
-  faNpm,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faCode,
-  faDatabase,
-  faGlobe,
-  faLayerGroup,
-  faMobileScreenButton,
-  faPalette,
-  faPlug,
-  faRobot,
-  faServer,
-  faShieldHalved,
-} from "@fortawesome/free-solid-svg-icons";
+  Bot,
+  Code2,
+  GitBranch,
+  Layers3,
+  Languages,
+  LayoutPanelTop,
+  Plug,
+  Server,
+  ShieldCheck,
+} from "lucide-react";
 
 // Components
 import Section from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import TechMarquee from "@/components/ui/tech-marquee";
+
+type SkillItem = {
+  name: string;
+  icon: string | LucideIcon;
+};
 
 export default function Skills() {
   // Translations
@@ -46,14 +37,14 @@ export default function Skills() {
       icon: Code2,
       title: t("categories.frontend.title"),
       items: [
-        { name: "HTML5", icon: faHtml5 },
-        { name: "CSS3", icon: faCss3Alt },
-        { name: "JavaScript", icon: faJs },
-        { name: "TypeScript", icon: faCode },
-        { name: "React", icon: faReact },
-        { name: "Next.js", icon: faCode },
-        { name: "Tailwind CSS", icon: faPalette },
-      ],
+        { name: "HTML5", icon: "/icons/skills/html5.svg" },
+        { name: "CSS3", icon: "/icons/skills/css3.svg" },
+        { name: "JavaScript", icon: "/icons/skills/javascript.svg" },
+        { name: "TypeScript", icon: "/icons/skills/typescript.svg" },
+        { name: "React", icon: "/icons/skills/react.svg" },
+        { name: "Next.js", icon: "/icons/skills/nextjs.svg" },
+        { name: "Tailwind CSS", icon: "/icons/skills/tailwindcss.svg" },
+      ] satisfies { number: string; icon: LucideIcon; title: string; items: SkillItem[]; reverse: boolean }[],
       reverse: false,
     },
     {
@@ -61,11 +52,11 @@ export default function Skills() {
       icon: Server,
       title: t("categories.backend.title"),
       items: [
-        { name: "Node.js", icon: faNodeJs },
-        { name: "Express.js", icon: faServer },
-        { name: "MongoDB", icon: faDatabase },
-        { name: "REST API", icon: faPlug },
-        { name: "Authentication", icon: faShieldHalved },
+        { name: "Node.js", icon: "/icons/skills/nodejs.svg" },
+        { name: "Express.js", icon: "/icons/skills/express.svg" },
+        { name: "MongoDB", icon: "/icons/skills/mongodb.svg" },
+        { name: "REST API", icon: Plug },
+        { name: "Authentication", icon: ShieldCheck },
       ],
       reverse: true,
     },
@@ -74,12 +65,12 @@ export default function Skills() {
       icon: GitBranch,
       title: t("categories.tools.title"),
       items: [
-        { name: "Git", icon: faGitAlt },
-        { name: "GitHub", icon: faGithub },
-        { name: "VS Code", icon: faCode },
-        { name: "Figma", icon: faFigma },
-        { name: "npm", icon: faNpm },
-        { name: "AI-assisted Development", icon: faRobot },
+        { name: "Git", icon: "/icons/skills/git.svg" },
+        { name: "GitHub", icon: "/icons/skills/github.svg" },
+        { name: "VS Code", icon: "/icons/skills/vscode.svg" },
+        { name: "Figma", icon: "/icons/skills/figma.svg" },
+        { name: "npm", icon: "/icons/skills/npm.svg" },
+        { name: "AI-assisted Development", icon: Bot },
       ],
       reverse: false,
     },
@@ -88,12 +79,12 @@ export default function Skills() {
       icon: Layers3,
       title: t("categories.practices.title"),
       items: [
-        { name: "Responsive Design", icon: faMobileScreenButton },
-        { name: "Component Architecture", icon: faLayerGroup },
-        { name: "API Integration", icon: faPlug },
-        { name: "Clean Code", icon: faCode },
-        { name: "Localization & RTL", icon: faGlobe },
-        { name: "Reusable UI", icon: faLayerGroup },
+        { name: "Responsive Design", icon: LayoutPanelTop },
+        { name: "Component Architecture", icon: Layers3 },
+        { name: "API Integration", icon: Plug },
+        { name: "Clean Code", icon: Code2 },
+        { name: "Localization & RTL", icon: Languages },
+        { name: "Reusable UI", icon: Layers3 },
       ],
       reverse: true,
     },
@@ -133,7 +124,10 @@ export default function Skills() {
                   <div className="mb-4 flex items-center justify-between gap-4">
                     <div className="flex min-w-0 items-center gap-3">
                       <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <Icon className="size-4 sm:size-5" aria-hidden="true" />
+                        <Icon
+                          className="size-4 sm:size-5"
+                          aria-hidden="true"
+                        />
                       </div>
 
                       <h3 className="truncate text-base font-semibold text-foreground sm:text-lg">
