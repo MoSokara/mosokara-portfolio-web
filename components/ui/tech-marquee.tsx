@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -46,12 +45,18 @@ export default function TechMarquee({
                   className="inline-flex shrink-0 items-center gap-2.5 rounded-md border border-border bg-card px-3 py-2 text-sm text-muted-foreground shadow-xs transition-colors hover:border-primary/30 hover:text-foreground sm:px-4 sm:py-2.5"
                 >
                   {typeof item.icon === "string" ? (
-                    <Image
-                      src={item.icon}
-                      alt=""
-                      width={18}
-                      height={18}
-                      className="size-4 shrink-0 object-contain sm:size-[18px]"
+                    <span
+                      className="size-4 shrink-0 bg-primary sm:size-[18px]"
+                      style={{
+                        maskImage: `url("${item.icon}")`,
+                        WebkitMaskImage: `url("${item.icon}")`,
+                        maskRepeat: "no-repeat",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        WebkitMaskPosition: "center",
+                        maskSize: "contain",
+                        WebkitMaskSize: "contain",
+                      }}
                       aria-hidden="true"
                     />
                   ) : (
