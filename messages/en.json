@@ -100,5 +100,25 @@
         "description": "Practical troubleshooting and technical consultation for programming errors, Windows and software issues, game-related problems, performance and configuration issues, and basic security incident troubleshooting. Support can also include legitimate software activation, setup, and optimization guidance."
       }
     }
+  },
+  "Skills": {
+    "badge": "Skills",
+    "eyebrow": "// developer.stack",
+    "title": "Technologies behind my development workflow.",
+    "description": "The technologies, tools, and practices I use across frontend, backend, and full-stack projects.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend"
+      },
+      "backend": {
+        "title": "Backend"
+      },
+      "tools": {
+        "title": "Tools & Workflow"
+      },
+      "practices": {
+        "title": "Core Practices"
+      }
+    }
   }
-}
+}\n
