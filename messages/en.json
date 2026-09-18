@@ -100,5 +100,29 @@
         "description": "Practical troubleshooting and technical consultation for programming errors, Windows and software issues, game-related problems, performance and configuration issues, and basic security incident troubleshooting. Support can also include legitimate software activation, setup, and optimization guidance."
       }
     }
+  },
+  "Skills": {
+    "badge": "Skills",
+    "eyebrow": "// developer.stack",
+    "title": "Technologies I use to build modern web applications.",
+    "description": "A practical overview of the technologies, tools, and development practices I use across frontend, backend, and full-stack projects.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend",
+        "description": "Building responsive and maintainable interfaces with modern React-based technologies."
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Developing practical APIs and backend features for complete web applications."
+      },
+      "tools": {
+        "title": "Tools & Workflow",
+        "description": "Tools I use to build, manage, test, and improve projects efficiently."
+      },
+      "practices": {
+        "title": "Core Practices",
+        "description": "Development practices that help keep applications consistent, reusable, and maintainable."
+      }
+    }
   }
 }
