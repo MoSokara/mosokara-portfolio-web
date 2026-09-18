@@ -327,3 +327,62 @@
       transition-duration: 0.01ms !important;
    }
 }
+
+/* Skills Marquee */
+
+@keyframes skills-marquee {
+   from {
+      transform: translateX(0);
+   }
+
+   to {
+      transform: translateX(-50%);
+   }
+}
+
+@keyframes skills-marquee-reverse {
+   from {
+      transform: translateX(-50%);
+   }
+
+   to {
+      transform: translateX(0);
+   }
+}
+
+.skills-marquee-track {
+   animation: skills-marquee 28s linear infinite;
+   will-change: transform;
+}
+
+.skills-marquee-track--reverse {
+   animation-name: skills-marquee-reverse;
+}
+
+.skills-marquee:hover .skills-marquee-track,
+.skills-marquee:focus-within .skills-marquee-track {
+   animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+   .skills-marquee-track {
+      animation-duration: 22s;
+   }
+}
+
+@media (min-width: 768px) {
+   .skills-marquee-track {
+      animation-duration: 32s;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .skills-marquee-track {
+      animation: none !important;
+      transform: none !important;
+   }
+
+   .skills-marquee-group:nth-child(2) {
+      display: none;
+   }
+}

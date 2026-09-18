@@ -104,6 +104,7 @@
   "Skills": {
     "badge": "Skills",
     "eyebrow": "// developer.stack",
+<<<<<<< HEAD
     "title": "Technologies I use to build modern web applications.",
     "description": "A practical overview of the technologies, tools, and development practices I use across frontend, backend, and full-stack projects.",
     "categories": {
@@ -122,7 +123,23 @@
       "practices": {
         "title": "Core Practices",
         "description": "Development practices that help keep applications consistent, reusable, and maintainable."
+=======
+    "title": "Technologies behind my development workflow.",
+    "description": "The technologies, tools, and practices I use across frontend, backend, and full-stack projects.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend"
+      },
+      "backend": {
+        "title": "Backend"
+      },
+      "tools": {
+        "title": "Tools & Workflow"
+      },
+      "practices": {
+        "title": "Core Practices"
+>>>>>>> 85410d4526135fb0172ec3dd78835acb091f4bf9
       }
     }
   }
-}
+}\n
