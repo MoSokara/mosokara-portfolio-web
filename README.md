@@ -151,6 +151,7 @@ This allows the production build to be tested locally before deployment.
 | --- | --- |
 | `npm run dev` | Start the development server |
 | `npm run lint` | Run ESLint across the project |
+| `npm run check:messages` | Verify locale message files stay in sync |
 | `npm run build` | Create a production build |
 | `npm run start` | Run the production build locally |
 
