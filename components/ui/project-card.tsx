@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 import type { Project } from "@/types/project";
 
@@ -18,7 +18,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const projectKey = `items.${project.translationKey}`;
 
   return (
-    <Card className="h-full transition-colors hover:border-primary/30">
+    <Card className="h-full p-0 transition-colors hover:border-primary/30">
       <div className="relative aspect-video overflow-hidden bg-muted">
         <Image
           src={project.image}
@@ -30,9 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="absolute inset-x-3 top-3 flex justify-end">
           <Badge
-            variant={
-              project.status === "completed" ? "secondary" : "default"
-            }
+            variant={project.status === "completed" ? "secondary" : "default"}
             className="bg-background/90 text-foreground shadow-sm backdrop-blur"
           >
             {t(`status.${project.status}`)}
@@ -73,11 +71,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={buttonVariants({
-                variant: "outline",
-                size: "sm",
+                variant: "secondary",
+                size: "lg",
+                className: "flex-1 flex items-center gap-2",
               })}
             >
-              <Github />
+              <Image
+                src="/icons/skills/github.svg"
+                alt="GitHub"
+                width={16}
+                height={16}
+              />
               {t("github")}
             </a>
           )}
@@ -88,7 +92,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={buttonVariants({
-                size: "sm",
+                size: "lg",
+                className: "flex-1 flex items-center gap-2",
               })}
             >
               <ExternalLink />

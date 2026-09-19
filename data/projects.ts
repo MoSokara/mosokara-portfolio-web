@@ -72,17 +72,6 @@ export const projects: Project[] = [
     image: "/imgs/projects/prayer-times-app.png",
     technologies: ["HTML", "CSS", "JavaScript"],
     status: "completed",
-    github: "https://github.com/MoSokara/loan-form-by-react.git",
-    live: "https://mosokara.github.io/Prayer-Times-App/",
-  },
-
-  // Prayer Times App
-  {
-    id: "prayer-times-app",
-    translationKey: "prayer-times-app",
-    image: "/imgs/projects/prayer-times-app.png",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    status: "completed",
     github: "https://github.com/MoSokara/Prayer-Times-App.git",
     live: "https://mosokara.github.io/Prayer-Times-App/",
   },
