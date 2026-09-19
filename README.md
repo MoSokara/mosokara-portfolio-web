@@ -151,7 +151,6 @@ This allows the production build to be tested locally before deployment.
 | --- | --- |
 | `npm run dev` | Start the development server |
 | `npm run lint` | Run ESLint across the project |
-| `npm run check:messages` | Verify locale message files stay in sync |
 | `npm run build` | Create a production build |
 | `npm run start` | Run the production build locally |
 
@@ -250,8 +249,6 @@ merge into master
 ```
 
 CodeRabbit is used as an additional automated reviewer rather than a replacement for manual code review. Review findings are verified against the current implementation before changes are applied.
-
-CI is intentionally deferred until the project reaches the maintenance and production-hardening stage.
 
 ## License
 
