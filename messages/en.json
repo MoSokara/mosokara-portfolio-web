@@ -100,5 +100,51 @@
         "description": "Practical troubleshooting and technical consultation for programming errors, Windows and software issues, game-related problems, performance and configuration issues, and basic security incident troubleshooting. Support can also include legitimate software activation, setup, and optimization guidance."
       }
     }
+  },
+  "Skills": {
+    "badge": "Skills",
+    "eyebrow": "// developer.stack",
+    "title": "Technologies behind my development workflow.",
+    "description": "The technologies, tools, and practices I use across frontend, backend, and full-stack projects.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend"
+      },
+      "backend": {
+        "title": "Backend"
+      },
+      "tools": {
+        "title": "Tools & Workflow"
+      },
+      "practices": {
+        "title": "Core Practices"
+      }
+    },
+    "items": {
+      "html5": "HTML5",
+      "css3": "CSS3",
+      "javascript": "JavaScript",
+      "typescript": "TypeScript",
+      "react": "React",
+      "nextjs": "Next.js",
+      "tailwindcss": "Tailwind CSS",
+      "nodejs": "Node.js",
+      "expressjs": "Express.js",
+      "mongodb": "MongoDB",
+      "restApi": "REST API",
+      "authentication": "Authentication",
+      "git": "Git",
+      "github": "GitHub",
+      "vscode": "VS Code",
+      "figma": "Figma",
+      "npm": "npm",
+      "aiAssistedDevelopment": "AI-assisted Development",
+      "responsiveDesign": "Responsive Design",
+      "componentArchitecture": "Component Architecture",
+      "apiIntegration": "API Integration",
+      "cleanCode": "Clean Code",
+      "localizationRtl": "Localization & RTL",
+      "reusableUi": "Reusable UI"
+    }
   }
 }

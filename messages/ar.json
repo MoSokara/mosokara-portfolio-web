@@ -100,5 +100,51 @@
         "description": "حلول عملية واستشارات تقنية لمشكلات البرمجة وWindows والبرامج والألعاب والأداء والإعدادات، بالإضافة إلى استكشاف المشكلات الأمنية الأساسية. كما يمكن تقديم المساعدة في التفعيل القانوني للبرامج والإعداد والتحسين."
       }
     }
+  },
+  "Skills": {
+    "badge": "المهارات",
+    "eyebrow": "// developer.stack",
+    "title": "التقنيات التي تدعم سير عملي في التطوير.",
+    "description": "التقنيات والأدوات وممارسات التطوير التي أستخدمها في مشاريع الواجهة الأمامية والخلفية وتطبيقات الـFull Stack.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend"
+      },
+      "backend": {
+        "title": "Backend"
+      },
+      "tools": {
+        "title": "الأدوات وسير العمل"
+      },
+      "practices": {
+        "title": "ممارسات التطوير"
+      }
+    },
+    "items": {
+      "html5": "HTML5",
+      "css3": "CSS3",
+      "javascript": "JavaScript",
+      "typescript": "TypeScript",
+      "react": "React",
+      "nextjs": "Next.js",
+      "tailwindcss": "Tailwind CSS",
+      "nodejs": "Node.js",
+      "expressjs": "Express.js",
+      "mongodb": "MongoDB",
+      "restApi": "REST API",
+      "authentication": "المصادقة",
+      "git": "Git",
+      "github": "GitHub",
+      "vscode": "VS Code",
+      "figma": "Figma",
+      "npm": "npm",
+      "aiAssistedDevelopment": "التطوير بمساعدة الذكاء الاصطناعي",
+      "responsiveDesign": "التصميم المتجاوب",
+      "componentArchitecture": "معمارية المكونات",
+      "apiIntegration": "تكامل واجهات API",
+      "cleanCode": "الكود النظيف",
+      "localizationRtl": "التوطين وRTL",
+      "reusableUi": "واجهة مستخدم قابلة لإعادة الاستخدام"
+    }
   }
 }
