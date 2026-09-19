@@ -146,5 +146,95 @@
       "localizationRtl": "التوطين وRTL",
       "reusableUi": "واجهة مستخدم قابلة لإعادة الاستخدام"
     }
+  },
+  "Projects": {
+    "badge": "المشاريع",
+    "eyebrow": "// selected.work",
+    "title": "مشاريع بنيتها من خلال التطوير العملي.",
+    "description": "مجموعة من المشاريع التي بنيتها أثناء التعلم والتجربة وتحويل الأفكار إلى تجارب ويب عملية.",
+    "technologiesLabel": "التقنيات المستخدمة",
+    "github": "GitHub",
+    "live": "المعاينة المباشرة",
+    "status": {
+      "completed": "مكتمل",
+      "in-progress": "قيد التطوير"
+    },
+    "items": {
+      "whitepace-sass-landing-page": {
+        "title": "Whitepace SaaS Landing Page",
+        "description": "صفحة هبوط لخدمة SaaS بتصميم متجاوب وأقسام حديثة.",
+        "imageAlt": "معاينة صفحة Whitepace SaaS"
+      },
+      "todo-list-react-app": {
+        "title": "Todo List App (React)",
+        "description": "تطبيق لإدارة المهام باستخدام React وVite وMaterial UI ومعرّفات فريدة للمهام.",
+        "imageAlt": "معاينة تطبيق Todo List بـ React"
+      },
+      "weather-react-app": {
+        "title": "Weather App",
+        "description": "واجهة طقس متجاوبة تعتمد على بيانات API مع دعم التوطين وتغير حالات الطقس.",
+        "imageAlt": "معاينة تطبيق الطقس بـ React"
+      },
+      "loan-form-by-react": {
+        "title": "Loan Form by React",
+        "description": "نموذج قرض بسيط باستخدام React مع حقول يتم التحكم بها وتفاعلات النموذج.",
+        "imageAlt": "معاينة نموذج القرض بـ React"
+      },
+      "prayer-times-app": {
+        "title": "Prayer Times App",
+        "description": "واجهة لعرض مواقيت الصلاة باستخدام HTML وCSS وJavaScript.",
+        "imageAlt": "معاينة تطبيق مواقيت الصلاة"
+      },
+      "guess-the-word-game": {
+        "title": "Guess the Word Game",
+        "description": "لعبة تخمين كلمات تعمل في المتصفح باستخدام JavaScript وتفاعلات بسيطة.",
+        "imageAlt": "معاينة لعبة تخمين الكلمة"
+      },
+      "todo-list-app": {
+        "title": "Todo List App",
+        "description": "قائمة مهام تقليدية باستخدام JavaScript وتفاعلات مباشرة مع عناصر الصفحة.",
+        "imageAlt": "معاينة تطبيق قائمة المهام"
+      },
+      "guess-a-number-game": {
+        "title": "Guess a Number Game",
+        "description": "لعبة تفاعلية لتخمين رقم مع حالة لعب بسيطة وتغذية راجعة للمستخدم.",
+        "imageAlt": "معاينة لعبة تخمين الرقم"
+      },
+      "calculator": {
+        "title": "Calculator",
+        "description": "آلة حاسبة بسيطة مع أزرار تفاعلية وعمليات حسابية أساسية.",
+        "imageAlt": "معاينة مشروع الآلة الحاسبة"
+      },
+      "business-card": {
+        "title": "Business Card",
+        "description": "بطاقة تعريف متجاوبة للتدرب على HTML الدلالي وCSS الحديث.",
+        "imageAlt": "معاينة مشروع بطاقة التعريف"
+      },
+      "blog-preview-card": {
+        "title": "Blog Preview Card",
+        "description": "بطاقة معاينة لمقالة مدونة أعيد تنفيذها اعتمادًا على تصميم مرجعي.",
+        "imageAlt": "معاينة مشروع بطاقة المدونة"
+      },
+      "html-and-css-template-4": {
+        "title": "HTML and CSS Template 4",
+        "description": "قالب موقع متجاوب يركز على التخطيط والمسافات وتنسيق CSS.",
+        "imageAlt": "معاينة قالب HTML وCSS رقم 4"
+      },
+      "html-and-css-template-3": {
+        "title": "HTML and CSS Template 3",
+        "description": "قالب موقع متجاوب يركز على التخطيط والمسافات وتنسيق CSS.",
+        "imageAlt": "معاينة قالب HTML وCSS رقم 3"
+      },
+      "html-and-css-template-2": {
+        "title": "HTML and CSS Template 2",
+        "description": "قالب موقع متجاوب يركز على التخطيط والمسافات وتنسيق CSS.",
+        "imageAlt": "معاينة قالب HTML وCSS رقم 2"
+      },
+      "html-and-css-template-1": {
+        "title": "HTML and CSS Template 1",
+        "description": "قالب موقع متجاوب يركز على التخطيط والمسافات وتنسيق CSS.",
+        "imageAlt": "معاينة قالب HTML وCSS رقم 1"
+      }
+    }
   }
 }
