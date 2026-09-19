@@ -14,6 +14,7 @@ The project is built with Next.js and is being developed as a production-oriente
 - About section with developer story, current focus, and highlights
 - Services section with four development and technical services
 - Skills section covering frontend, backend, tools, workflow, and core development practices
+- Projects section powered by structured project data with localized content, status badges, technology icons, and project links
 - Reusable technology marquee with forward and reverse scrolling
 - Reduced-motion support for animated skill collections
 - Local technology SVG icons with documented sources and attribution
@@ -30,7 +31,6 @@ The project is built with Next.js and is being developed as a production-oriente
 
 ### Planned sections
 
-- Projects
 - Contact
 
 ## Tech Stack
@@ -78,6 +78,7 @@ components/
 ├── sections/
 │   ├── about.tsx
 │   ├── hero.tsx
+│   ├── projects.tsx
 │   ├── services.tsx
 │   └── skills.tsx
 └── ui/
@@ -89,9 +90,16 @@ components/
     ├── field.tsx
     ├── input.tsx
     ├── label.tsx
+    ├── project-card.tsx
     ├── separator.tsx
     ├── tech-marquee.tsx
-    └── ...
+    └── technology-icon.tsx
+
+data/
+└── projects.ts
+
+types/
+└── project.ts
 
 hooks/
 └── use-active-section.ts
@@ -108,6 +116,7 @@ providers/
 
 public/
 ├── icons/
+│   ├── projects/
 │   └── skills/
 └── imgs/
     └── ...
@@ -168,7 +177,7 @@ Section links preserve URL hashes such as:
 #contact
 ```
 
-The navigation model already contains the planned Projects and Contact section IDs so they can be integrated without redesigning the navigation architecture.
+The navigation model contains the Projects and Contact section IDs, allowing new sections to be integrated without redesigning the navigation architecture.
 
 ## Localization
 
@@ -178,6 +187,12 @@ The application currently supports:
 - Arabic (`ar`)
 
 User-facing content is stored in the `messages/` directory and accessed through `next-intl`.
+
+## Projects Architecture
+
+Project content is stored in `data/projects.ts` and typed through `types/project.ts`. The Projects section renders reusable `ProjectCard` components, while technology names are mapped to local SVG assets so the UI can reuse the same primary-colored icon treatment used by the Skills section.
+
+Project titles, descriptions, status labels, and action labels are localized through `next-intl` in the `messages/` directory.
 
 ## Skills Architecture
 
@@ -212,13 +227,12 @@ The project currently uses `next-themes@0.4.6`. With Next.js 16.2+ and React 19,
 
 The remaining implementation is planned in the following order:
 
-1. Projects section
-2. Contact section
-3. Full responsive and accessibility review
-4. SEO and metadata refinement
-5. Performance and production optimization
-6. Final visual and UX polish
-7. Testing and CI/CD improvements
+1. Contact section
+2. Full responsive and accessibility review
+3. SEO and metadata refinement
+4. Performance and production optimization
+5. Final visual and UX polish
+6. Testing and CI/CD improvements
 
 ## Development Approach
 
