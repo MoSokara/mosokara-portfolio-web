@@ -146,5 +146,95 @@
       "localizationRtl": "Localization & RTL",
       "reusableUi": "Reusable UI"
     }
+  },
+  "Projects": {
+    "badge": "Projects",
+    "eyebrow": "// selected.work",
+    "title": "Projects built through real development.",
+    "description": "A collection of projects built while learning, experimenting, and turning ideas into working web experiences.",
+    "technologiesLabel": "Technologies used",
+    "github": "GitHub",
+    "live": "Live Demo",
+    "status": {
+      "completed": "Completed",
+      "in-progress": "In progress"
+    },
+    "items": {
+      "whitepace-sass-landing-page": {
+        "title": "Whitepace SaaS Landing Page",
+        "description": "SaaS landing page recreated with a responsive layout and modern sections.",
+        "imageAlt": "Whitepace SaaS landing page preview"
+      },
+      "todo-list-react-app": {
+        "title": "Todo List App (React)",
+        "description": "Task manager built with React, Vite, Material UI, and unique task IDs.",
+        "imageAlt": "Todo List React app preview"
+      },
+      "weather-react-app": {
+        "title": "Weather App",
+        "description": "Responsive weather interface with API data, localization, and dynamic conditions.",
+        "imageAlt": "Weather React app preview"
+      },
+      "loan-form-by-react": {
+        "title": "Loan Form by React",
+        "description": "Simple React loan form focused on controlled inputs and form interactions.",
+        "imageAlt": "Loan Form React app preview"
+      },
+      "prayer-times-app": {
+        "title": "Prayer Times App",
+        "description": "Prayer times interface built with HTML, CSS, and JavaScript.",
+        "imageAlt": "Prayer Times app preview"
+      },
+      "guess-the-word-game": {
+        "title": "Guess the Word Game",
+        "description": "Browser word-guessing game built with vanilla JavaScript and interactive feedback.",
+        "imageAlt": "Guess the Word game preview"
+      },
+      "todo-list-app": {
+        "title": "Todo List App",
+        "description": "Classic task list built with vanilla JavaScript and DOM interactions.",
+        "imageAlt": "Todo List app preview"
+      },
+      "guess-a-number-game": {
+        "title": "Guess a Number Game",
+        "description": "Interactive number guessing game with simple game state and feedback.",
+        "imageAlt": "Guess a Number game preview"
+      },
+      "calculator": {
+        "title": "Calculator",
+        "description": "Simple calculator with interactive controls and arithmetic operations.",
+        "imageAlt": "Calculator project preview"
+      },
+      "business-card": {
+        "title": "Business Card",
+        "description": "Responsive profile card built to practice semantic HTML and modern CSS.",
+        "imageAlt": "Business Card project preview"
+      },
+      "blog-preview-card": {
+        "title": "Blog Preview Card",
+        "description": "Responsive blog preview card recreated from a reference design.",
+        "imageAlt": "Blog Preview Card project preview"
+      },
+      "html-and-css-template-4": {
+        "title": "HTML and CSS Template 4",
+        "description": "Responsive website template focused on layout, spacing, and CSS styling.",
+        "imageAlt": "HTML and CSS Template 4 preview"
+      },
+      "html-and-css-template-3": {
+        "title": "HTML and CSS Template 3",
+        "description": "Responsive website template focused on layout, spacing, and CSS styling.",
+        "imageAlt": "HTML and CSS Template 3 preview"
+      },
+      "html-and-css-template-2": {
+        "title": "HTML and CSS Template 2",
+        "description": "Responsive website template focused on layout, spacing, and CSS styling.",
+        "imageAlt": "HTML and CSS Template 2 preview"
+      },
+      "html-and-css-template-1": {
+        "title": "HTML and CSS Template 1",
+        "description": "Responsive website template focused on layout, spacing, and CSS styling.",
+        "imageAlt": "HTML and CSS Template 1 preview"
+      }
+    }
   }
 }
