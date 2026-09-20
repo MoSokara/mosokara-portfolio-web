@@ -4,19 +4,15 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/providers/theme.provider";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { siteConfig } from "@/config/site";
 
 // Components
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-
-// Font Awesome Configuration
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,48 +29,62 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://mosokara.vercel.app"),
-  title: {
-    default: "Sokara | Frontend Web Developer",
-    template: "%s | Sokara",
-  },
-  description:
-    "Mohamed Sokara's portfolio: frontend-focused web development with React, Next.js, TypeScript, and modern, accessible interfaces.",
-  authors: [{ name: "Mohamed Sokara" }],
-  creator: "Mohamed Sokara",
-  publisher: "Mohamed Sokara",
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    type: "website",
-    url: "https://mosokara.vercel.app",
-    title: "Sokara | Frontend Web Developer",
-    description:
-      "Portfolio of Mohamed Sokara, a frontend-focused web developer building modern, responsive, and accessible web interfaces.",
-    siteName: "Sokara Portfolio",
-    images: [
-      {
-        url: "/imgs/preview/hero_preview.png",
-        alt: "Sokara portfolio preview",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    creator: "@mosokara",
-    title: "Sokara | Frontend Web Developer",
-    description:
-      "Portfolio of Mohamed Sokara, a frontend-focused web developer building modern, responsive, and accessible web interfaces.",
-    images: ["/imgs/preview/hero_preview.png"],
-  },
-  icons: {
-    icon: "/imgs/favicon/icon.png",
-    apple: "/imgs/favicon/apple-icon.png",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    return {};
+  }
+
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata",
+  });
+
+  return {
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: t("title"),
+      template: `%s | ${siteConfig.name}`,
+    },
+    description: t("description"),
+    authors: [{ name: siteConfig.fullName }],
+    creator: siteConfig.fullName,
+    publisher: siteConfig.fullName,
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      type: "website",
+      url: siteConfig.url,
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      siteName: `${siteConfig.name} Portfolio`,
+      images: [
+        {
+          url: "/imgs/preview/hero_preview.png",
+          alt: t("imageAlt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      creator: siteConfig.twitterHandle,
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      images: ["/imgs/preview/hero_preview.png"],
+    },
+    icons: {
+      icon: "/imgs/favicon/icon.png",
+      apple: "/imgs/favicon/apple-icon.png",
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
