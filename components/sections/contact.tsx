@@ -4,12 +4,9 @@ import { useCallback, useEffect, useRef, useState, type FormEvent } from "react"
 import { useTranslations } from "next-intl";
 import {
   ArrowUpRight,
-  Building2,
   Mail,
   MessageCircle,
-  Phone,
   Send,
-  WalletCards,
 } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
@@ -102,7 +99,7 @@ export default function Contact() {
         : "",
       company ? `${t("form.company")}: ${company.trim()}` : "",
       "",
-      `${t("form.message)}:`,
+      `${t("form.message")}:`,
       message.trim(),
     ]
       .filter(Boolean)
