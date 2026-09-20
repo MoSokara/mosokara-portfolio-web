@@ -2,12 +2,11 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { ArrowUpRight, Terminal } from "lucide-react";
+import { ArrowUpRight, Mail, Terminal } from "lucide-react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { siteConfig } from "@/config/site";
 
+import BrandIcon from "@/components/ui/brand-icon";
 import { useActiveSection, type SectionId } from "@/hooks/use-active-section";
 
 import Container from "./container";
@@ -48,20 +47,11 @@ export default function Footer() {
   ];
 
   const socialLinks = [
+    ...siteConfig.socialLinks.filter((social) => social.href),
     {
-      label: "GitHub",
-      href: "https://github.com/MoSokara",
-      icon: faGithub,
-    },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/mosokara",
-      icon: faLinkedin,
-    },
-    {
-      label: "Email",
-      href: "mailto:mosokara2007@gmail.com",
-      icon: faSquareEnvelope,
+      label: t("connect.email"),
+      href: "mailto:" + siteConfig.contact.email,
+      icon: null,
     },
   ];
 
@@ -131,8 +121,6 @@ export default function Footer() {
 
               <div className="flex flex-wrap items-center gap-2">
                 {socialLinks.map((social) => {
-                  const Icon = social.icon;
-
                   return (
                     <a
                       key={social.label}
@@ -152,7 +140,14 @@ export default function Footer() {
                         className: "size-9",
                       })}
                     >
-                      <FontAwesomeIcon icon={Icon} />
+                      {social.icon ? (
+                        <BrandIcon
+                          icon={social.icon}
+                          className="size-4.5 bg-current"
+                        />
+                      ) : (
+                        <Mail className="size-4.5" aria-hidden="true" />
+                      )}
                     </a>
                   );
                 })}
