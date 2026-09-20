@@ -6,7 +6,7 @@ The Projects section reuses the local technology SVGs from the Skills section wh
 
 Additional technology icons in this directory are sourced from Simple Icons.
 
-Vite, MUI, Vercel, Font Awesome, i18next, and Axios.
+Vite, MUI, Vercel, Font Awesome, i18next, and Axios. The Font Awesome logo here is only a historical technology icon for the Weather project; the portfolio itself no longer depends on the Font Awesome library.
 
 Source:
 https://github.com/simple-icons/simple-icons
