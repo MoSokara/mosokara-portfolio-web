@@ -29,6 +29,8 @@
    --color-accent-foreground: var(--accent-foreground);
 
    --color-destructive: var(--destructive);
+   --color-whatsapp: var(--whatsapp);
+   --color-whatsapp-strong: var(--whatsapp-strong);
    --color-border: var(--border);
    --color-input: var(--input);
    --color-ring: var(--ring);
@@ -90,6 +92,9 @@
    --color-warning: #a16207;
    --color-error: #b91c1c;
    --color-info: #0369a1;
+
+   --whatsapp: #25d366;
+   --whatsapp-strong: #20bd5a;
 
    --color-on-brand: #ffffff;
 
@@ -199,6 +204,9 @@
    --color-warning: #fbbf24;
    --color-error: #f87171;
    --color-info: #60a5fa;
+
+   --whatsapp: #25d366;
+   --whatsapp-strong: #1faa52;
 
    --color-on-brand: #ffffff;
 
