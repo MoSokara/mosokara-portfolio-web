@@ -15,6 +15,7 @@ The project is built with Next.js and is being developed as a production-oriente
 - Services section with four development and technical services
 - Skills section covering frontend, backend, tools, workflow, and core development practices
 - Projects section powered by structured project data with localized content, status badges, technology icons, and project links
+- Contact section with direct contact methods and an email-based contact form
 - Reusable technology marquee with forward and reverse scrolling
 - Reduced-motion support for animated skill collections
 - Local technology SVG icons with documented sources and attribution
@@ -28,10 +29,6 @@ The project is built with Next.js and is being developed as a production-oriente
 - Motion integration for viewport-aware section tracking
 - Alternating section backgrounds for clearer visual separation
 - Global favicon and Apple touch icon configuration
-
-### Planned sections
-
-- Contact
 
 ## Tech Stack
 
@@ -77,6 +74,7 @@ components/
 │   └── ...
 ├── sections/
 │   ├── about.tsx
+│   ├── contact.tsx
 │   ├── hero.tsx
 │   ├── projects.tsx
 │   ├── services.tsx
@@ -194,6 +192,12 @@ Project content is stored in `data/projects.ts` and typed through `types/project
 
 Project titles, descriptions, status labels, and action labels are localized through `next-intl` in the `messages/` directory.
 
+## Contact Architecture
+
+The Contact section provides direct email, GitHub, and LinkedIn contact methods plus a reusable form that prepares a `mailto:` message in the visitor's default email client. The form is intentionally client-side and does not depend on a backend contact service.
+
+Contact copy and form labels are localized through `next-intl` in both English and Arabic.
+
 ## Skills Architecture
 
 The Skills section is built around four collections:
@@ -227,12 +231,11 @@ The project currently uses `next-themes@0.4.6`. With Next.js 16.2+ and React 19,
 
 The remaining implementation is planned in the following order:
 
-1. Contact section
-2. Full responsive and accessibility review
-3. SEO and metadata refinement
-4. Performance and production optimization
-5. Final visual and UX polish
-6. Testing and CI/CD improvements
+1. Full responsive and accessibility review
+2. SEO and metadata refinement
+3. Performance and production optimization
+4. Final visual and UX polish
+5. Testing and CI/CD improvements
 
 ## Development Approach
 
