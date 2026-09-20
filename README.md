@@ -15,10 +15,10 @@ The project is built with Next.js and is being developed as a production-oriente
 - Services section with four development and technical services
 - Skills section covering frontend, backend, tools, workflow, and core development practices
 - Projects section powered by structured project data with localized content, status badges, technology icons, and project links
-- Contact section with direct contact methods and an email-based contact form
+- Contact section with service-aware email and WhatsApp contact actions
 - Reusable technology marquee with forward and reverse scrolling
 - Reduced-motion support for animated skill collections
-- Local technology SVG icons with documented sources and attribution
+- Local technology and brand SVG icons with documented sources and attribution
 - Scroll-aware navigation with active section state
 - Smooth in-page navigation with URL hash support
 - Mobile navigation drawer with active section state
@@ -29,6 +29,7 @@ The project is built with Next.js and is being developed as a production-oriente
 - Motion integration for viewport-aware section tracking
 - Alternating section backgrounds for clearer visual separation
 - Global favicon and Apple touch icon configuration
+- Centralized site/contact configuration and reusable brand icon system
 
 ## Tech Stack
 
@@ -44,7 +45,7 @@ The project is built with Next.js and is being developed as a production-oriente
 - shadcn/ui
 - Base UI
 - Lucide React
-- Font Awesome
+- Simple Icons (local SVG assets)
 - Motion
 
 ### Application
@@ -61,6 +62,10 @@ app/
     ├── layout.tsx
     ├── page.tsx
     └── globals.css
+
+config/
+├── brand-icons.ts
+└── site.ts
 
 components/
 ├── layout/
@@ -87,17 +92,23 @@ components/
     ├── dropdown-menu.tsx
     ├── field.tsx
     ├── input.tsx
+    ├── select.tsx
     ├── label.tsx
     ├── project-card.tsx
     ├── separator.tsx
     ├── tech-marquee.tsx
-    └── technology-icon.tsx
+    ├── technology-icon.tsx
+    └── brand-icon.tsx
 
 data/
-└── projects.ts
+├── projects.ts
+└── services.ts
 
 types/
 └── project.ts
+
+docs/
+└── site-config.md
 
 hooks/
 └── use-active-section.ts
@@ -108,6 +119,9 @@ messages/
 
 i18n/
 └── routing.ts
+
+lib/
+└── contact-service.ts
 
 providers/
 └── theme.provider.tsx
@@ -194,9 +208,30 @@ Project titles, descriptions, status labels, and action labels are localized thr
 
 ## Contact Architecture
 
-The Contact section provides direct email, GitHub, and LinkedIn contact methods plus a reusable form that prepares a `mailto:` message in the visitor's default email client. The form is intentionally client-side and does not depend on a backend contact service.
+The Contact section provides direct contact methods plus a service-aware form with Name, Phone, Service, Budget, Company, Subject, and Message fields. Budget and Company are optional; Subject is generated from the visitor name and selected service.
+
+Service cards and the Contact dropdown read from the same `data/services.ts` source. Selecting a service also prepares a localized starter message that the visitor can edit.
+
+Email uses a `mailto:` action, so the visitor's configured email account is used as the sender. WhatsApp uses a pre-filled `wa.me` link when a WhatsApp Business number is configured in `config/site.ts`.
 
 Contact copy and form labels are localized through `next-intl` in both English and Arabic.
+
+## Configuration
+
+Most site changes should not require editing components. Use `config/site.ts` for links and contact settings, `config/brand-icons.ts` plus `public/icons/brands/` for brand logos, `data/services.ts` for service structure, and `messages/` for all localized user-facing copy and SEO metadata.
+
+See `docs/site-config.md` for the exact edit locations and examples.
+
+## Brand Icons
+
+The reusable `BrandIcon` component provides one consistent API for local brand SVGs:
+
+```tsx
+<BrandIcon icon="github" />
+<BrandIcon icon="whatsapp" />
+```
+
+Brand assets are stored locally and rendered with the same design-system color model used by the Skills technology icons.
 
 ## Skills Architecture
 
@@ -221,7 +256,6 @@ The project currently uses `next-themes@0.4.6`. With Next.js 16.2+ and React 19,
 
 ## Future Ideas
 
-- Make each service card action (`ArrowUpRight`) open the Contact section with a pre-filled message specific to the selected service, while allowing the visitor to edit it before sending.
 - Add project filtering only when the portfolio contains enough projects for filtering to provide real value.
 - Add richer project detail views only when individual projects need more context than a portfolio card can provide.
 - Improve SEO, accessibility, performance, metadata, and production polish after the main portfolio sections are complete.
