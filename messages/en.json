@@ -236,5 +236,36 @@
         "imageAlt": "HTML and CSS Template 1 preview"
       }
     }
+  },
+  "Contact": {
+    "badge": "Contact",
+    "eyebrow": "// let's.connect",
+    "title": "Let's build something useful together.",
+    "description": "Have a project, idea, or technical task in mind? Send me the details and I'll get back to you through email.",
+    "status": "Open to work",
+    "direct": {
+      "title": "Direct contact",
+      "heading": "Prefer a direct conversation?",
+      "description": "You can reach me by email or visit my professional profiles to learn more about my work.",
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "note": "The form opens your default email client with the message prepared for you."
+    },
+    "form": {
+      "title": "Send a message",
+      "description": "Fill out the form and your default email client will open with the message ready to send.",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What would you like to discuss?",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project or request...",
+      "note": "Your message will be sent through your own email client.",
+      "submit": "Open Email Client",
+      "defaultSubject": "Portfolio Contact"
+    }
   }
 }
