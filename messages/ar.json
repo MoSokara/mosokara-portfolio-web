@@ -29,7 +29,8 @@
     },
     "connect": {
       "title": "تواصل معي",
-      "cta": "لنعمل معًا"
+      "cta": "لنعمل معًا",
+      "email": "البريد الإلكتروني"
     },
     "copyright": "سكرة. جميع الحقوق محفوظة.",
     "builtWith": "مبني باستخدام Next.js وTypeScript وMERN Stack"
