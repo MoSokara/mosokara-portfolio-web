@@ -71,7 +71,7 @@ export default function Footer() {
                 className="mb-4 inline-flex items-center gap-2 rounded-lg px-2 py-1.5 font-mono text-lg font-bold text-primary transition-colors hover:bg-muted"
               >
                 <Terminal className="size-5" />
-                Sokara
+                {siteConfig.name}
               </Link>
 
               <p className="text-sm leading-7 text-muted-foreground">
