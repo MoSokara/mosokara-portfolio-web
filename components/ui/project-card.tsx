@@ -5,6 +5,7 @@ import { ExternalLink } from "lucide-react";
 import type { Project } from "@/types/project";
 
 import { buttonVariants } from "@/components/ui/button";
+import BrandIcon from "@/components/ui/brand-icon";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import TechnologyIcon from "@/components/ui/technology-icon";
@@ -76,12 +77,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 className: "flex-1 flex items-center gap-2",
               })}
             >
-              <Image
-                src="/icons/skills/github.svg"
-                alt="GitHub"
-                width={16}
-                height={16}
-              />
+              <BrandIcon icon="github" className="size-4.5 bg-current" />
               {t("github")}
             </a>
           )}
