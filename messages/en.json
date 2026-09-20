@@ -29,7 +29,8 @@
     },
     "connect": {
       "title": "Connect",
-      "cta": "Let's work together"
+      "cta": "Let's work together",
+      "email": "Email"
     },
     "copyright": "Sokara. All rights reserved.",
     "builtWith": "Built with Next.js, TypeScript & the MERN stack"
