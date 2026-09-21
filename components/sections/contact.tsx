@@ -42,6 +42,7 @@ export default function Contact() {
   const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
 
+  const formRef = useRef<HTMLFormElement>(null);
   const generatedMessageRef = useRef("");
 
   const applyService = useCallback(
@@ -119,8 +120,15 @@ export default function Contact() {
   };
 
   const handleWhatsAppSubmit = () => {
+    if (!siteConfig.contact.whatsappNumber) {
+      return;
+    }
+
+    if (!formRef.current?.reportValidity()) {
+      return;
+    }
+
     if (
-      !siteConfig.contact.whatsappNumber ||
       !name.trim() ||
       !phone.trim() ||
       !service ||
@@ -240,7 +248,11 @@ export default function Contact() {
                 </p>
               </div>
 
-              <form onSubmit={handleEmailSubmit} className="space-y-5">
+              <form
+                ref={formRef}
+                onSubmit={handleEmailSubmit}
+                className="space-y-5"
+              >
                 <FieldGroup>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field>
