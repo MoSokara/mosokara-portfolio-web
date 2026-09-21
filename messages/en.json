@@ -282,7 +282,7 @@
       "companyPlaceholder": "Company or organization",
       "optional": "Optional",
       "subjectNote": "Generated automatically from your name and service.",
-      "subjectTemplate": "{name} want {service}",
+      "subjectTemplate": "{name} wants {service}",
       "emailSubmit": "Send with email",
       "whatsappSubmit": "Send with WhatsApp",
       "whatsappNotConfigured": "Add your WhatsApp Business number in config/site.ts to enable this button.",
