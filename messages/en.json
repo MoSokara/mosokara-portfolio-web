@@ -29,13 +29,14 @@
     },
     "connect": {
       "title": "Connect",
-      "cta": "Let's work together"
+      "cta": "Let's work together",
+      "email": "Email"
     },
     "copyright": "Sokara. All rights reserved.",
-    "builtWith": "Built with Next.js, TypeScript & the MERN stack"
+    "builtWith": "Built with Next.js, Tailwind CSS, and TypeScript."
   },
   "Hero": {
-    "badge": "Available for freelance and development opportunities",
+    "badge": "Available for freelance and internship opportunities",
     "title1": "Mohamed",
     "title2": "Sokara",
     "bio": "I build modern, scalable, and high-quality web applications using the MERN stack, with a strong focus on clean architecture, responsive interfaces, and maintainable code.",
@@ -46,9 +47,9 @@
   },
   "About": {
     "badge": "About Me",
-    "eyebrow": "// developer.profile",
-    "title": "Building for the web, growing into full-stack.",
-    "description": "I'm Mohamed Sokara, a MERN Stack Developer focused on building modern web applications with clean architecture, responsive interfaces, and maintainable code.",
+    "eyebrow": "// who.i.am",
+    "title": "I build, learn, and ship for the web.",
+    "description": "MERN Stack developer building practical web apps with clean structure and responsive UI.",
     "story": {
       "label": "developer.story",
       "title": "I care about how things are built, not just how they look.",
@@ -79,33 +80,33 @@
   },
   "Services": {
     "badge": "Services",
-    "eyebrow": "// what.i.build",
-    "title": "Practical solutions for modern web projects.",
-    "description": "I provide focused frontend, backend, and technical services built around clear requirements, modern technologies, and efficient AI-assisted workflows.",
+    "eyebrow": "// what.i.offer",
+    "title": "Services I can build with you.",
+    "description": "Focused web development and technical support based on clear requirements.",
     "items": {
       "frontend": {
         "title": "Frontend Development",
-        "description": "Modern, responsive frontend websites built from designs or requirements using React, Next.js, and modern web technologies. I focus on understanding the required experience, writing maintainable code, and using AI-assisted development to improve delivery speed without compromising quality."
+        "description": "Responsive React and Next.js interfaces built from designs or requirements."
       },
       "websites": {
         "title": "Websites & Customization",
-        "description": "Ready-to-use websites adapted from existing work or recreated from reference websites, then customized to match the client's brand, content, and requirements. Modern UI practices and AI-assisted workflows help deliver polished results faster and more efficiently."
+        "description": "Responsive websites built or customized around your brand, content, and goals."
       },
       "api": {
         "title": "Express REST API & Authentication",
-        "description": "Simple and practical REST APIs built with Express.js for small web applications and backend needs, including basic authentication and authorization with structured routes, validation, and secure request handling."
+        "description": "Practical Express APIs with validation, authentication, and clean route structure."
       },
       "support": {
         "title": "Technical Troubleshooting & Consultation",
-        "description": "Practical troubleshooting and technical consultation for programming errors, Windows and software issues, game-related problems, performance and configuration issues, and basic security incident troubleshooting. Support can also include legitimate software activation, setup, and optimization guidance."
+        "description": "Troubleshooting for web, Windows, software, performance, and configuration issues."
       }
     }
   },
   "Skills": {
     "badge": "Skills",
-    "eyebrow": "// developer.stack",
-    "title": "Technologies behind my development workflow.",
-    "description": "The technologies, tools, and practices I use across frontend, backend, and full-stack projects.",
+    "eyebrow": "// my.stack",
+    "title": "The stack I use to build and ship.",
+    "description": "A practical mix of frontend, backend, tools, and engineering practices.",
     "categories": {
       "frontend": {
         "title": "Frontend"
@@ -150,8 +151,8 @@
   "Projects": {
     "badge": "Projects",
     "eyebrow": "// selected.work",
-    "title": "Projects built through real development.",
-    "description": "A collection of projects built while learning, experimenting, and turning ideas into working web experiences.",
+    "title": "Selected work.",
+    "description": "A mix of real builds, experiments, and practice projects.",
     "technologiesLabel": "Technologies used",
     "github": "GitHub",
     "live": "Live Demo",
@@ -236,5 +237,55 @@
         "imageAlt": "HTML and CSS Template 1 preview"
       }
     }
+  },
+  "Contact": {
+    "badge": "Contact",
+    "eyebrow": "// let's.talk",
+    "title": "Have a project in mind?",
+    "description": "Tell me what you need, choose a service and budget, then send your request by email or WhatsApp.",
+    "status": "Open to work",
+    "direct": {
+      "title": "Direct contact",
+      "heading": "Prefer a direct conversation?",
+      "description": "Reach me by email or through my professional profiles.",
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "note": "Your details are not stored by this website. They are only used to prepare the message in your email client or WhatsApp."
+    },
+    "form": {
+      "title": "Project details",
+      "description": "Share the basics and write your message in your own words. The subject is generated automatically when you send.",
+      "message": "Message",
+      "messagePlaceholder": "Tell me what you need, your goals, and any useful details...",
+      "note": "Email uses your default email account as the sender. WhatsApp opens a pre-filled chat.",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+20 10 xxx xxxx",
+      "service": "Service",
+      "servicePlaceholder": "Select a service",
+      "budget": "Budget",
+      "budgetPlaceholder": "Select a budget (optional)",
+      "budgetOptions": {
+        "under75": "Under $75",
+        "75to150": "$75 – $150",
+        "150to300": "$150 – $300",
+        "300to500": "$300 – $500",
+        "500to800": "$500 – $800",
+        "800plus": "$800+",
+        "notSure": "Not sure yet"
+      },
+      "subjectTemplate": "{name} wants {service} service",
+      "emailSubmit": "Send with email",
+      "whatsappSubmit": "Send with WhatsApp",
+      "name": "Name",
+      "namePlaceholder": "Your name"
+    }
+  },
+  "Metadata": {
+    "title": "Sokara | MERN Stack Developer",
+    "description": "Mohamed Sokara's portfolio — MERN Stack Developer building practical, responsive, and maintainable web applications.",
+    "ogTitle": "Sokara | MERN Stack Developer",
+    "ogDescription": "Portfolio of Mohamed Sokara, a MERN Stack Developer building practical web applications and polished interfaces.",
+    "imageAlt": "Sokara portfolio preview"
   }
 }
