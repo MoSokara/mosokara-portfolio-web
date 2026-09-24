@@ -11,7 +11,7 @@ Change these values for:
 - Contact email
 - WhatsApp Business number
 - GitHub, LinkedIn, Facebook, or other social links
-- Budget options shown in the Contact form
+- Starter budget ranges shown in the Contact form
 
 For WhatsApp, enter the full number as digits only with the country code and without `+`, spaces, or the leading local zero.
 
@@ -59,11 +59,8 @@ Edit `data/services.ts` for the service structure:
 - Order number
 - Icon
 - Technologies
-- Relationship with Contact selection
 
-Edit the matching `Services.items.*` and `Contact.form.defaultMessages.*` keys in the translation files for what the visitor sees.
-
-Service cards and the Contact dropdown use the same service data, so adding a service should be done in one data file plus both translation files.
+The Services section and Contact dropdown use the same service data. Service cards are informational only and do not trigger Contact selection or generate a message.
 
 ## Projects
 
