@@ -15,7 +15,7 @@ The project is built with Next.js and is being developed as a production-oriente
 - Services section with four development and technical services
 - Skills section covering frontend, backend, tools, workflow, and core development practices
 - Projects section powered by structured project data with localized content, status badges, technology icons, and project links
-- Contact section with service-aware email and WhatsApp contact actions
+- Contact section with direct contact links and a responsive service/budget form
 - Reusable technology marquee with forward and reverse scrolling
 - Reduced-motion support for animated skill collections
 - Local technology and brand SVG icons with documented sources and attribution
@@ -92,9 +92,9 @@ components/
     ├── dropdown-menu.tsx
     ├── field.tsx
     ├── input.tsx
-    ├── select.tsx
     ├── label.tsx
     ├── project-card.tsx
+    ├── select.tsx
     ├── separator.tsx
     ├── tech-marquee.tsx
     ├── technology-icon.tsx
@@ -120,15 +120,13 @@ messages/
 i18n/
 └── routing.ts
 
-lib/
-└── contact-service.ts
-
 providers/
 └── theme.provider.tsx
 
 public/
 ├── icons/
 │   ├── projects/
+│   ├── brands/
 │   └── skills/
 └── imgs/
     └── ...
@@ -189,8 +187,6 @@ Section links preserve URL hashes such as:
 #contact
 ```
 
-The navigation model contains the Projects and Contact section IDs, allowing new sections to be integrated without redesigning the navigation architecture.
-
 ## Localization
 
 The application currently supports:
@@ -208,17 +204,23 @@ Project titles, descriptions, status labels, and action labels are localized thr
 
 ## Contact Architecture
 
-The Contact section provides direct contact methods plus a service-aware form with Name, Phone, Service, Budget, Company, Subject, and Message fields. Budget and Company are optional; Subject is generated from the visitor name and selected service.
+The Contact section is one responsive section: direct contact links appear first, followed by a full-width project form.
 
-Service cards and the Contact dropdown read from the same `data/services.ts` source. Selecting a service also prepares a localized starter message that the visitor can edit.
+The form contains only the client-facing fields needed to start a conversation:
+
+- First Name (required)
+- Phone Number (required)
+- Service (required)
+- Budget (optional)
+- Message (required)
+
+The email subject is generated automatically when the message is sent and is not exposed as a form field. The visitor writes the message themselves; selecting a service never replaces or generates their message.
 
 Email uses a `mailto:` action, so the visitor's configured email account is used as the sender. WhatsApp uses a pre-filled `wa.me` link when a WhatsApp Business number is configured in `config/site.ts`.
 
-Contact copy and form labels are localized through `next-intl` in both English and Arabic.
-
 ## Configuration
 
-Most site changes should not require editing components. Use `config/site.ts` for links and contact settings, `config/brand-icons.ts` plus `public/icons/brands/` for brand logos, `data/services.ts` for service structure, and `messages/` for all localized user-facing copy and SEO metadata.
+Most site changes should not require editing components. Use `config/site.ts` for links, contact settings, and starter budget ranges; `config/brand-icons.ts` plus `public/icons/brands/` for brand logos; `data/services.ts` for service structure; and `messages/` for localized user-facing copy and SEO metadata.
 
 See `docs/site-config.md` for the exact edit locations and examples.
 
@@ -249,6 +251,19 @@ Technology items use local SVG assets from `public/icons/skills/`, while generic
 The application uses Next.js metadata for the page title, description, Open Graph data, Twitter card metadata, and Apple/general icons.
 
 The global `favicon.ico` is stored at `app/favicon.ico`, following the App Router file-based metadata convention.
+
+## Third-Party Assets & Attribution
+
+The portfolio includes local SVG brand and technology icons sourced from [Simple Icons](https://github.com/simple-icons/simple-icons).
+
+Simple Icons itself is released under CC0, but Simple Icons explicitly notes that individual icons may have separate licenses or trademark considerations. Check the individual icon metadata and source when reusing or replacing an icon.
+
+Brand names, logos, and trademarks remain the property of their respective owners.
+
+The project currently uses local icons for brands such as GitHub, LinkedIn, Facebook, WhatsApp, Vite, MUI, Vercel, i18next, Axios, and other technologies. The Font Awesome SVG that remains in the Weather project assets is only a historical project technology image; the portfolio no longer depends on the Font Awesome package.
+
+Official Simple Icons licensing/disclaimer information:
+https://github.com/simple-icons/simple-icons/blob/develop/DISCLAIMER.md
 
 ## Maintenance Notes
 
