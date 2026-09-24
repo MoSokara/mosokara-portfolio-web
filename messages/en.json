@@ -99,8 +99,7 @@
       "support": {
         "title": "Technical Troubleshooting & Consultation",
         "description": "Troubleshooting for web, Windows, software, performance, and configuration issues."
-      },
-      "cta": "Discuss {service}"
+      }
     }
   },
   "Skills": {
@@ -243,7 +242,7 @@
     "badge": "Contact",
     "eyebrow": "// let's.talk",
     "title": "Have a project in mind?",
-    "description": "Choose a service, add the details, and send your request by email or WhatsApp.",
+    "description": "Tell me what you need, choose a service and budget, then send your request by email or WhatsApp.",
     "status": "Open to work",
     "direct": {
       "title": "Direct contact",
@@ -252,46 +251,35 @@
       "email": "Email",
       "github": "GitHub",
       "linkedin": "LinkedIn",
-      "note": "The form opens your email client or WhatsApp with the message prepared for you."
+      "note": "Your details are not stored by this website. They are only used to prepare the message in your email client or WhatsApp."
     },
     "form": {
       "title": "Project details",
-      "description": "Choose a service and the message will be prepared for you. Edit it before sending.",
-      "name": "Name",
-      "namePlaceholder": "Your name",
-      "subject": "Subject",
-      "subjectPlaceholder": "Select a service and enter your name",
+      "description": "Share the basics and write your message in your own words. The subject is generated automatically when you send.",
       "message": "Message",
       "messagePlaceholder": "Tell me what you need, your goals, and any useful details...",
       "note": "Email uses your default email account as the sender. WhatsApp opens a pre-filled chat.",
-      "phone": "Phone",
+      "phone": "Phone Number",
       "phonePlaceholder": "+20 10 xxx xxxx",
       "service": "Service",
       "servicePlaceholder": "Select a service",
       "budget": "Budget",
       "budgetPlaceholder": "Select a budget (optional)",
       "budgetOptions": {
-        "under100": "Under $100",
-        "100to250": "$100 – $250",
-        "250to500": "$250 – $500",
-        "500to1000": "$500 – $1,000",
-        "1000plus": "$1,000+",
+        "under75": "Under $75",
+        "75to150": "$75 – $150",
+        "150to300": "$150 – $300",
+        "300to500": "$300 – $500",
+        "500to800": "$500 – $800",
+        "800plus": "$800+",
         "notSure": "Not sure yet"
       },
-      "company": "Company",
-      "companyPlaceholder": "Company or organization",
-      "optional": "Optional",
-      "subjectNote": "Generated automatically from your name and service.",
       "subjectTemplate": "{name} wants {service}",
       "emailSubmit": "Send with email",
       "whatsappSubmit": "Send with WhatsApp",
       "whatsappNotConfigured": "Add your WhatsApp Business number in config/site.ts to enable this button.",
-      "defaultMessages": {
-        "frontend": "Hi Mohamed, I'm interested in Frontend Development. I'd like to discuss the project requirements, timeline, and next steps.",
-        "websites": "Hi Mohamed, I'd like to discuss a website or customization project. I can share the reference, pages, content, and requirements.",
-        "api": "Hi Mohamed, I'd like to discuss an Express REST API and authentication project. I can share the endpoints, features, and authentication needs.",
-        "support": "Hi Mohamed, I need help with a technical issue. I'll share the problem, environment, and any relevant details."
-      }
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name"
     }
   },
   "Metadata": {
