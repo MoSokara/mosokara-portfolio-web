@@ -31,12 +31,14 @@ export const siteConfig = {
     },
   ],
 
+  // Starter budget ranges are intentionally accessible while the portfolio builds its first client history.
   budgetOptions: [
-    { id: "under100", labelKey: "under100" },
-    { id: "100to250", labelKey: "100to250" },
-    { id: "250to500", labelKey: "250to500" },
-    { id: "500to1000", labelKey: "500to1000" },
-    { id: "1000plus", labelKey: "1000plus" },
+    { id: "under75", labelKey: "under75" },
+    { id: "75to150", labelKey: "75to150" },
+    { id: "150to300", labelKey: "150to300" },
+    { id: "300to500", labelKey: "300to500" },
+    { id: "500to800", labelKey: "500to800" },
+    { id: "800plus", labelKey: "800plus" },
     { id: "notSure", labelKey: "notSure" },
   ],
 } as const;
