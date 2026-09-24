@@ -16,11 +16,7 @@ import BrandIcon from "@/components/ui/brand-icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Field,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
@@ -29,7 +25,7 @@ export default function Contact() {
   const t = useTranslations("Contact");
   const tServices = useTranslations("Services");
 
-  const [firstName, setFirstName] = useState("");
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [service, setService] = useState<ServiceId | "">("");
   const [budget, setBudget] = useState("");
@@ -43,27 +39,29 @@ export default function Contact() {
     : "";
 
   const subject =
-    firstName.trim() && selectedServiceLabel
+    name.trim() && selectedServiceLabel
       ? t("form.subjectTemplate", {
-          name: firstName.trim(),
+          name: name.trim(),
           service: selectedServiceLabel,
         })
       : "";
 
   const buildMessageBody = () =>
     [
-      `${t("form.firstName")}: ${firstName.trim()}`,
+      `${t("form.name")}: ${name.trim()}`,
+      `------------------------`,
       `${t("form.phone")}: ${phone.trim()}`,
+      `------------------------`,
       `${t("form.service")}: ${selectedServiceLabel}`,
-      budget
-        ? `${t("form.budget")}: ${t(`form.budgetOptions.${budget}`)}`
-        : "",
+      `------------------------`,
+      budget ? `${t("form.budget")}: ${t(`form.budgetOptions.${budget}`)}` : "",
       "",
+      `------------------------`,
       `${t("form.message")}:`,
       message.trim(),
     ]
       .filter(Boolean)
-      .join("\\n");
+      .join("\n");
 
   const handleEmailSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -74,8 +72,7 @@ export default function Contact() {
 
     const body = buildMessageBody();
 
-    window.location.href =
-      `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const handleWhatsAppSubmit = () => {
@@ -87,10 +84,9 @@ export default function Contact() {
       return;
     }
 
-    const body = [subject, "", buildMessageBody()].join("\\n");
+    const body = [subject, "", buildMessageBody()].join("\n");
 
-    const url =
-      `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(body)}`;
+    const url = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(body)}`;
 
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -145,7 +141,7 @@ export default function Contact() {
                     aria-hidden="true"
                   />
                   <span className="truncate text-sm text-foreground">
-                    {siteConfig.contact.email}
+                    Gmail
                   </span>
                 </a>
 
@@ -197,16 +193,16 @@ export default function Contact() {
                 <FieldGroup>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field>
-                      <FieldLabel htmlFor="contact-first-name">
-                        {t("form.firstName")}
+                      <FieldLabel htmlFor="contact-name">
+                        {t("form.name")}
                       </FieldLabel>
                       <Input
-                        id="contact-first-name"
-                        name="firstName"
-                        value={firstName}
-                        onChange={(event) => setFirstName(event.target.value)}
-                        placeholder={t("form.firstNamePlaceholder")}
-                        autoComplete="given-name"
+                        id="contact-name"
+                        name="name"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                        placeholder={t("form.namePlaceholder")}
+                        autoComplete="name"
                         required
                       />
                     </Field>
@@ -264,9 +260,7 @@ export default function Contact() {
                         value={budget}
                         onChange={(event) => setBudget(event.target.value)}
                       >
-                        <option value="">
-                          {t("form.budgetPlaceholder")}
-                        </option>
+                        <option value="">{t("form.budgetPlaceholder")}</option>
 
                         {siteConfig.budgetOptions.map((option) => (
                           <option key={option.id} value={option.id}>
@@ -305,11 +299,6 @@ export default function Contact() {
                     onClick={handleWhatsAppSubmit}
                     disabled={!siteConfig.contact.whatsappNumber}
                     className="flex-1 bg-whatsapp text-white hover:bg-whatsapp-strong hover:text-white"
-                    title={
-                      siteConfig.contact.whatsappNumber
-                        ? undefined
-                        : t("form.whatsappNotConfigured")
-                    }
                   >
                     <BrandIcon icon="whatsapp" className="size-5 bg-white" />
                     {t("form.whatsappSubmit")}

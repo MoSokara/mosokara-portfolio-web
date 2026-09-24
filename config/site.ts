@@ -10,7 +10,7 @@ export const siteConfig = {
   contact: {
     email: "mosokara2007@gmail.com",
     // Digits only, including the country code. Example: 2010XXXXXXXX.
-    whatsappNumber: "",
+    whatsappNumber: "201023827379",
   },
 
   socialLinks: [

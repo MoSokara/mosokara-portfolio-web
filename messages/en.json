@@ -33,10 +33,10 @@
       "email": "Email"
     },
     "copyright": "Sokara. All rights reserved.",
-    "builtWith": "Built with Next.js, TypeScript & the MERN stack"
+    "builtWith": "Built with Next.js, Tailwind CSS, and TypeScript."
   },
   "Hero": {
-    "badge": "Available for freelance and development opportunities",
+    "badge": "Available for freelance and internship opportunities",
     "title1": "Mohamed",
     "title2": "Sokara",
     "bio": "I build modern, scalable, and high-quality web applications using the MERN stack, with a strong focus on clean architecture, responsive interfaces, and maintainable code.",
@@ -274,12 +274,11 @@
         "800plus": "$800+",
         "notSure": "Not sure yet"
       },
-      "subjectTemplate": "{name} wants {service}",
+      "subjectTemplate": "{name} wants {service} service",
       "emailSubmit": "Send with email",
       "whatsappSubmit": "Send with WhatsApp",
-      "whatsappNotConfigured": "Add your WhatsApp Business number in config/site.ts to enable this button.",
-      "firstName": "First Name",
-      "firstNamePlaceholder": "Your first name"
+      "name": "Name",
+      "namePlaceholder": "Your name"
     }
   },
   "Metadata": {
