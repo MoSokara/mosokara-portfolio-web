@@ -141,7 +141,7 @@ export default function Contact() {
                     aria-hidden="true"
                   />
                   <span className="truncate text-sm text-foreground">
-                    Gmail
+                    {t("direct.email")}
                   </span>
                 </a>
 
