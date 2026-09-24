@@ -1,8 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Code2, LayoutTemplate, Server, Wrench } from "lucide-react";
-
 // Shared service data keeps the cards and Contact dropdown in sync.
 import { services } from "@/data/services";
 
@@ -10,13 +8,6 @@ import { services } from "@/data/services";
 import Section from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-
-const serviceIcons = {
-  frontend: Code2,
-  websites: LayoutTemplate,
-  api: Server,
-  support: Wrench,
-} as const;
 
 export default function Services() {
   const t = useTranslations("Services");
@@ -46,7 +37,7 @@ export default function Services() {
         {/* Services are informational cards; Contact handles the request flow. */}
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((service) => {
-            const Icon = serviceIcons[service.id];
+            const Icon = service.icon;
 
             return (
               <Card key={service.id} className="h-full">
