@@ -1,24 +1,25 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { ArrowUpRight } from "lucide-react";
+import { Code2, LayoutTemplate, Server, Wrench } from "lucide-react";
 
-import { useActiveSection } from "@/hooks/use-active-section";
-import { requestContactService } from "@/lib/contact-service";
+// Shared service data keeps the cards and Contact dropdown in sync.
 import { services } from "@/data/services";
 
+// Shared layout and UI primitives.
 import Section from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
+const serviceIcons = {
+  frontend: Code2,
+  websites: LayoutTemplate,
+  api: Server,
+  support: Wrench,
+} as const;
+
 export default function Services() {
   const t = useTranslations("Services");
-  const { scrollToSection } = useActiveSection();
-
-  const handleServiceClick = (serviceId: (typeof services)[number]["id"]) => {
-    requestContactService(serviceId);
-    scrollToSection("contact");
-  };
 
   return (
     <Section id="services">
@@ -42,64 +43,47 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services */}
+        {/* Services are informational cards; Contact handles the request flow. */}
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((service) => {
-            const Icon = service.icon;
+            const Icon = serviceIcons[service.id];
 
             return (
-              <button
-                key={service.id}
-                type="button"
-                onClick={() => handleServiceClick(service.id)}
-                className="group block h-full w-full text-start"
-                aria-label={t("items.cta", {
-                  service: t(`items.${service.translationKey}.title`),
-                })}
-              >
-                <Card className="h-full transition-colors group-hover:border-primary/30 group-focus-visible:ring-2 group-focus-visible:ring-ring/50">
-                  <CardContent className="flex h-full flex-col p-6 sm:p-8">
-                    <div className="mb-6 flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                          <Icon className="size-5" aria-hidden="true" />
-                        </div>
-
-                        <span className="font-mono text-sm text-muted-foreground">
-                          {service.number}
-                        </span>
-                      </div>
-
-                      <ArrowUpRight
-                        className="size-5 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
-                        aria-hidden="true"
-                      />
+              <Card key={service.id} className="h-full">
+                <CardContent className="flex h-full flex-col p-6 sm:p-8">
+                  <div className="mb-6 flex items-start gap-4">
+                    <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <Icon className="size-5" aria-hidden="true" />
                     </div>
 
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-foreground sm:text-2xl">
-                        {t(`items.${service.translationKey}.title`)}
-                      </h3>
+                    <span className="font-mono text-sm text-muted-foreground">
+                      {service.number}
+                    </span>
+                  </div>
 
-                      <p className="mt-4 leading-8 text-muted-foreground">
-                        {t(`items.${service.translationKey}.description`)}
-                      </p>
-                    </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-foreground sm:text-2xl">
+                      {t(`items.${service.translationKey}.title`)}
+                    </h3>
 
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {service.technologies.map((technology) => (
-                        <Badge
-                          key={technology}
-                          variant="secondary"
-                          className="font-mono text-xs"
-                        >
-                          {technology}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </button>
+                    <p className="mt-4 leading-8 text-muted-foreground">
+                      {t(`items.${service.translationKey}.description`)}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {service.technologies.map((technology) => (
+                      <Badge
+                        key={technology}
+                        variant="secondary"
+                        className="font-mono text-xs"
+                      >
+                        {technology}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
