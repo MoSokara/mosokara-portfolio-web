@@ -1,29 +1,23 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
+
+// Next-intl translations.
 import { useTranslations } from "next-intl";
-import {
-  ArrowUpRight,
-  Mail,
-  MessageCircle,
-  Send,
-} from "lucide-react";
+import { Mail, MessageCircle, Send } from "lucide-react";
 
+// Shared site configuration and service data.
 import { siteConfig } from "@/config/site";
-import type { ServiceId } from "@/data/services";
-import { services } from "@/data/services";
-import {
-  CONTACT_SERVICE_EVENT,
-} from "@/lib/contact-service";
+import { services, type ServiceId } from "@/data/services";
 
-import BrandIcon from "@/components/ui/brand-icon";
+// Shared layout and UI primitives.
 import Section from "@/components/layout/section";
+import BrandIcon from "@/components/ui/brand-icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Field,
-  FieldDescription,
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field";
@@ -35,81 +29,46 @@ export default function Contact() {
   const t = useTranslations("Contact");
   const tServices = useTranslations("Services");
 
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [phone, setPhone] = useState("");
   const [service, setService] = useState<ServiceId | "">("");
   const [budget, setBudget] = useState("");
-  const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
 
   const formRef = useRef<HTMLFormElement>(null);
-  const generatedMessageRef = useRef("");
 
-  const applyService = useCallback(
-    (serviceId: ServiceId) => {
-      const defaultMessage = t(`form.defaultMessages.${serviceId}`);
-
-      setService(serviceId);
-      setMessage((current) =>
-        !current.trim() || current === generatedMessageRef.current
-          ? defaultMessage
-          : current,
-      );
-      generatedMessageRef.current = defaultMessage;
-    },
-    [t],
-  );
-
-  useEffect(() => {
-    const handleServiceSelect = (event: Event) => {
-      const serviceId = (event as CustomEvent<ServiceId>).detail;
-
-      if (!services.some((item) => item.id === serviceId)) {
-        return;
-      }
-
-      applyService(serviceId);
-    };
-
-    window.addEventListener(CONTACT_SERVICE_EVENT, handleServiceSelect);
-
-    return () => {
-      window.removeEventListener(CONTACT_SERVICE_EVENT, handleServiceSelect);
-    };
-  }, [applyService]);
-
+  // The subject stays out of the UI and is generated only when a message is sent.
   const selectedServiceLabel = service
     ? tServices(`items.${service}.title`)
     : "";
 
   const subject =
-    name.trim() && selectedServiceLabel
+    firstName.trim() && selectedServiceLabel
       ? t("form.subjectTemplate", {
-          name: name.trim(),
+          name: firstName.trim(),
           service: selectedServiceLabel,
         })
       : "";
 
   const buildMessageBody = () =>
     [
-      `${t("form.name")}: ${name.trim()}`,
+      `${t("form.firstName")}: ${firstName.trim()}`,
       `${t("form.phone")}: ${phone.trim()}`,
       `${t("form.service")}: ${selectedServiceLabel}`,
       budget
         ? `${t("form.budget")}: ${t(`form.budgetOptions.${budget}`)}`
         : "",
-      company ? `${t("form.company")}: ${company.trim()}` : "",
       "",
       `${t("form.message")}:`,
       message.trim(),
     ]
       .filter(Boolean)
-      .join("\n");
+      .join("\\n");
 
   const handleEmailSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!name.trim() || !phone.trim() || !service || !message.trim()) {
+    if (!formRef.current?.reportValidity()) {
       return;
     }
 
@@ -128,20 +87,7 @@ export default function Contact() {
       return;
     }
 
-    if (
-      !name.trim() ||
-      !phone.trim() ||
-      !service ||
-      !message.trim()
-    ) {
-      return;
-    }
-
-    const body = [
-      subject,
-      "",
-      buildMessageBody(),
-    ].join("\n");
+    const body = [subject, "", buildMessageBody()].join("\\n");
 
     const url =
       `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(body)}`;
@@ -170,39 +116,37 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-          <Card className="h-full">
-            <CardContent className="flex h-full flex-col p-6 sm:p-8">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3 font-mono text-sm text-primary">
-                  <Mail className="size-4" aria-hidden="true" />
-                  <span>{t("direct.title")}</span>
-                </div>
-                <Badge>{t("status")}</Badge>
+        <Card>
+          <CardContent className="p-6 sm:p-8 lg:p-10">
+            {/* Direct contact links stay at the top of the same Contact section. */}
+            <div className="space-y-5">
+              <div className="flex items-center gap-3 font-mono text-sm text-primary">
+                <Mail className="size-4" aria-hidden="true" />
+                <span>{t("direct.title")}</span>
+                <Badge className="ms-auto">{t("status")}</Badge>
               </div>
 
-              <div className="mt-8 space-y-4">
-                <p className="text-xl font-semibold text-foreground">
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold text-foreground">
                   {t("direct.heading")}
-                </p>
-                <p className="leading-7 text-muted-foreground">
+                </h3>
+                <p className="max-w-2xl leading-7 text-muted-foreground">
                   {t("direct.description")}
                 </p>
               </div>
 
-              <div className="mt-8 space-y-3">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="group flex items-center gap-3 rounded-lg border border-border bg-muted/30 p-3 transition-colors hover:border-primary/30 hover:bg-muted/60"
+                  className="flex min-w-0 items-center gap-3 rounded-lg border border-border bg-muted/30 p-3 transition-colors hover:border-primary/30 hover:bg-muted/60"
                 >
-                  <Mail className="size-5 shrink-0 text-primary" aria-hidden="true" />
-                  <span className="min-w-0 flex-1 truncate text-sm text-foreground">
-                    {siteConfig.contact.email}
-                  </span>
-                  <ArrowUpRight
-                    className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
+                  <Mail
+                    className="size-5 shrink-0 text-primary"
                     aria-hidden="true"
                   />
+                  <span className="truncate text-sm text-foreground">
+                    {siteConfig.contact.email}
+                  </span>
                 </a>
 
                 {siteConfig.socialLinks
@@ -213,32 +157,29 @@ export default function Contact() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-3 rounded-lg border border-border bg-muted/30 p-3 transition-colors hover:border-primary/30 hover:bg-muted/60"
+                      className="flex min-w-0 items-center gap-3 rounded-lg border border-border bg-muted/30 p-3 transition-colors hover:border-primary/30 hover:bg-muted/60"
                     >
                       <BrandIcon
                         icon={social.icon}
-                        className="size-5 bg-primary"
+                        className="size-5 shrink-0 bg-primary"
                       />
-                      <span className="flex-1 text-sm text-foreground">
+                      <span className="truncate text-sm text-foreground">
                         {social.label}
                       </span>
-                      <ArrowUpRight
-                        className="size-4 text-muted-foreground transition-colors group-hover:text-primary"
-                        aria-hidden="true"
-                      />
                     </a>
                   ))}
               </div>
 
-              <p className="mt-auto pt-8 text-xs leading-6 text-muted-foreground">
+              <p className="text-xs leading-6 text-muted-foreground">
                 {t("direct.note")}
               </p>
-            </CardContent>
-          </Card>
+            </div>
 
-          <Card>
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-8">
+            <div className="my-8 border-t border-border" />
+
+            {/* The form is full-width below the direct contact links. */}
+            <div className="space-y-6">
+              <div>
                 <div className="flex items-center gap-3 font-mono text-sm text-primary">
                   <Send className="size-4" aria-hidden="true" />
                   <span>{t("form.title")}</span>
@@ -256,16 +197,16 @@ export default function Contact() {
                 <FieldGroup>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field>
-                      <FieldLabel htmlFor="contact-name">
-                        {t("form.name")}
+                      <FieldLabel htmlFor="contact-first-name">
+                        {t("form.firstName")}
                       </FieldLabel>
                       <Input
-                        id="contact-name"
-                        name="name"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
-                        placeholder={t("form.namePlaceholder")}
-                        autoComplete="name"
+                        id="contact-first-name"
+                        name="firstName"
+                        value={firstName}
+                        onChange={(event) => setFirstName(event.target.value)}
+                        placeholder={t("form.firstNamePlaceholder")}
+                        autoComplete="given-name"
                         required
                       />
                     </Field>
@@ -296,13 +237,9 @@ export default function Contact() {
                         id="contact-service"
                         name="service"
                         value={service}
-                        onChange={(event) => {
-                          const value = event.target.value as ServiceId;
-
-                          if (value) {
-                            applyService(value);
-                          }
-                        }}
+                        onChange={(event) =>
+                          setService(event.target.value as ServiceId)
+                        }
                         required
                       >
                         <option value="" disabled>
@@ -341,39 +278,6 @@ export default function Contact() {
                   </div>
 
                   <Field>
-                    <FieldLabel htmlFor="contact-company">
-                      {t("form.company")}
-                    </FieldLabel>
-                    <Input
-                      id="contact-company"
-                      name="company"
-                      value={company}
-                      onChange={(event) => setCompany(event.target.value)}
-                      placeholder={t("form.companyPlaceholder")}
-                      autoComplete="organization"
-                    />
-                    <FieldDescription>
-                      {t("form.optional")}
-                    </FieldDescription>
-                  </Field>
-
-                  <Field>
-                    <FieldLabel htmlFor="contact-subject">
-                      {t("form.subject")}
-                    </FieldLabel>
-                    <Input
-                      id="contact-subject"
-                      name="subject"
-                      value={subject}
-                      placeholder={t("form.subjectPlaceholder")}
-                      readOnly
-                    />
-                    <FieldDescription>
-                      {t("form.subjectNote")}
-                    </FieldDescription>
-                  </Field>
-
-                  <Field>
                     <FieldLabel htmlFor="contact-message">
                       {t("form.message")}
                     </FieldLabel>
@@ -383,17 +287,14 @@ export default function Contact() {
                       value={message}
                       onChange={(event) => setMessage(event.target.value)}
                       placeholder={t("form.messagePlaceholder")}
+                      className="min-h-40 w-full"
                       required
                     />
                   </Field>
                 </FieldGroup>
 
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="flex-1"
-                  >
+                  <Button type="submit" size="lg" className="flex-1">
                     <Mail />
                     {t("form.emailSubmit")}
                   </Button>
@@ -423,9 +324,9 @@ export default function Contact() {
                   {t("form.note")}
                 </p>
               </form>
-            </CardContent>
-          </Card>
-        </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </Section>
   );
